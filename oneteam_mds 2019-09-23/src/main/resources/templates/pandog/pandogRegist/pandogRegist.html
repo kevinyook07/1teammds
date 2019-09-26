@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">영상판독 정보 등록</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+        
+        
+    
+       <div class="col-lg-12">
+                <div class="block">
+                  <div class="block-body"></br>                  
+                    <form class="form-horizontal" action="/pandogdbList" method="post">
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">영상판독정보 코드</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="iidCode"
+						th:value="${pandogh.iidCode}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">병원 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="hospitalId"
+						th:value="${pandogh.hospitalId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">환자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="patientId"
+						th:value="${pandogh.patientId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">최종 판독내용</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="liContent"
+						th:value="${pandogh.liContent}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">이미지 URL</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="iUrl"
+						th:value="${pandogh.iUrl}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">판독의 성명</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="idName"
+						th:value="${pandogh.idName}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">담당의 </label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="pDoctor"
+						th:value="${pandogh.pDoctor}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">영상 촬영일시</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="ifdTime"
+						th:value="${pandogh.ifdTime}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">영상 최종판독일자</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="iliDate"
+						th:value="${pandogh.iliDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="adminId"
+						th:value="${pandogh.adminId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록일자</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="iidrDate"
+						th:value="${pandogh.iidrDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                          <button type="submit" class="btn btn-secondary" style="float: right;">등록</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

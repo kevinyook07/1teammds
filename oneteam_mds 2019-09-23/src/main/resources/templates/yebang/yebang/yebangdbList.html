@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">예방접종내역 리스트</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+              <div class="col-lg-12">
+                <div class="block">
+                  
+                  <div class="block-body">
+                    
+                     <table class="table">
+                      <thead>
+                        <tr>
+					        <th>예방접종내역 코드</th>
+							<th>병원고유번호</th>
+							<th>환자고유번호</th>
+							<th>예방접종명</th>
+							<th>예방접종코드</th>
+							<th>백신명</th>
+							<th>접종차수</th>
+							<th>담당의</th>
+							<th>접종일자</th>
+							<th>등록자 고유번호</th>
+							<th>등록일자</th>
+				      	</tr>
+                      </thead>
+                      <tbody>
+		               	<tr th:each="list:${yebangdbList}">
+							<td th:text="${list.pibCode}"></td>
+							<td th:text="${list.hospitalId}"></td>
+							<td th:text="${list.patientId}"></td>
+							<td th:text="${list.piName}"></td>
+							<td th:text="${list.piCode}"></td>
+							<td th:text="${list.pivName}"></td>
+							<td th:text="${list.piBalance}"></td>
+							<td th:text="${list.pDoctor}"></td>
+							<td th:text="${list.piDate}"></td>
+							<td th:text="${list.adminId}"></td>
+							<td th:text="${list.pirDate}"></td>
+							
+						</tr>
+                      </tbody>
+                    </table>
+                      <div class="line"></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

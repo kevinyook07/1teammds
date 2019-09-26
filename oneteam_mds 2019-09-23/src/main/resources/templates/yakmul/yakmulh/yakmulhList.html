@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">약물처방내역 리스트</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+              <div class="col-lg-12">
+                <div class="block">
+                  
+                  <div class="block-body">
+                    
+                     <table class="table">
+                      <thead>
+                      	<tr>
+					        <th>약물처방내역 코드</th>
+					        <th>병원 고유번호</th>
+					        <th>환자 고유번호</th>
+					        <th>처방약품명</th>
+					        <th>처방약품코드</th>
+					        <th>주성분명</th>
+					        <th>주성분코드</th>
+					        <th>용량</th>
+					        <th>복용단위</th>
+					        <th>횟수</th>
+					        <th>투여기간</th>
+					        <th>용법</th>
+					        <th>담당의</th>
+					        <th>처방일시</th>
+					        <th>등록자 고유번호</th>
+					        <th>등록일자</th>
+					        <th>전송 체크</th>
+					        <th>전송</th>
+				      	</tr>
+                      </thead>
+                      <tbody>		               							
+						<tr th:each="list:${yakmulhList}">
+							<td th:text="${list.mbCode}"></td>
+							<td th:text="${list.hospitalId}"></td>
+							<td th:text="${list.patientId}"></td>
+							<td th:text="${list.mmName}"></td>
+							<td th:text="${list.mmCode}"></td>
+							<td th:text="${list.miName}"></td>
+							<td th:text="${list.miCode}"></td>
+							<td th:text="${list.mVolume}"></td>
+							<td th:text="${list.mdUnit}"></td>
+							<td th:text="${list.mdNumber}"></td>
+							<td th:text="${list.mPeriod}"></td>
+							<td th:text="${list.mUsage}"></td>
+							<td th:text="${list.pDoctor}"></td>
+							<td th:text="${list.mdTime}"></td>
+							<td th:text="${list.adminId}"></td>
+							<td th:text="${list.mrDate}"></td>
+							<td><input id="inlineCheckbox" type="checkbox" value="option1"></td>
+							<td>
+								<a th:href="@{/yakmulRegist(patientId=${list.patientId})}">전송</a>
+							</td>
+							
+						</tr>
+						
+                      </tbody>
+                    </table>
+                      <div class="line"></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

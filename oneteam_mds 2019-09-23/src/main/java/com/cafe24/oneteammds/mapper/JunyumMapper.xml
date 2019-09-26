@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.JunyumMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getJunyumhList" 
+ 			resultType="com.cafe24.oneteammds.vo.Junyumh">
+ 		SELECT 
+ 			lcidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , lcidName
+ 		  , lcidpGroup
+ 		  , lcidtResult
+ 		  , lcidinOut
+ 		  , lcidArea
+ 		  , pDoctor
+ 		  , lcidoDate
+ 		  , lciddDate
+ 		  , lcidrDate
+ 		  , adminId
+ 		  , lcidDate
+		FROM 
+			junyumh
+ 	</select>
+ 	<select id="getJunyumhById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Junyumh">
+		SELECT 
+ 			lcidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , lcidName
+ 		  , lcidpGroup
+ 		  , lcidtResult
+ 		  , lcidinOut
+ 		  , lcidArea
+ 		  , pDoctor
+ 		  , lcidoDate
+ 		  , lciddDate
+ 		  , lcidrDate
+ 		  , adminId
+ 		  , lcidDate
+		FROM 
+			junyumh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getJunyumRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Junyumh">
+ 	REPLACE INTO 
+ 			junyum
+		SELECT
+			lcidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , lcidName
+ 		  , lcidpGroup
+ 		  , lcidtResult
+ 		  , lcidinOut
+ 		  , lcidArea
+ 		  , pDoctor
+ 		  , lcidoDate
+ 		  , lciddDate
+ 		  , lcidrDate
+ 		  , adminId
+ 		  , lcidDate
+		FROM 
+			junyumh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getJunyumdbList"
+			resultType="com.cafe24.oneteammds.vo.Junyum">
+		SELECT 
+ 			lcidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , lcidName
+ 		  , lcidpGroup
+ 		  , lcidtResult
+ 		  , lcidinOut
+ 		  , lcidArea
+ 		  , pDoctor
+ 		  , lcidoDate
+ 		  , lciddDate
+ 		  , lcidrDate
+ 		  , adminId
+ 		  , lcidDate
+		FROM 
+			junyum
+	</select>
+ </mapper>

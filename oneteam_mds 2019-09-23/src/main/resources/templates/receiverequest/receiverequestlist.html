@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<br><h4 style="text-align:center">진료 정보 수신 요청 내역</h4>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+			<div class="col-lg-13">
+				<div class="block margin-bottom-sm">
+                 <div class="table-responsive"> 
+                 	<table class="table">
+                      <thead>
+                        <tr>
+							<th>선    택</th>
+							<th>정보 공유 병원 코드</th>
+							<th>정보 받을 병원 코드</th>
+							<th>환자 고유번호</th>
+							<th>진단 코드</th>
+							<th>정보 받는 사유</th>
+							<th>응급상태</th>
+							<th>요청 날짜</th>
+						</tr>
+                      </thead>
+                      <tbody>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>병원 A 코드</td>
+							<td>병원 B 코드</td>
+							<td>김춘식 환자 코드</td>
+							<td>수술내역</td>
+							<td>수술</td>
+							<td>O</td>
+							<td>2019-12-25</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>병원 C 코드</td>
+							<td>병원 A 코드</td>
+							<td>이한솔 환자 코드</td>
+							<td>알러지 및 부작용</td>
+							<td>진료</td>
+							<td>X</td>
+							<td>2019-12-31</td>
+						</tr>
+					  </tbody>
+                    </table>
+                  <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                         <br><br><br>
+                         <br><br><br>
+                         <a href="sendrequestinsert" class="btn btn-secondary" style="float: right;">발송</a>
+                        </div>
+                      </div>
+              	</div>
+               </div>
+            </div>
+	</div>
+	<!--************메인 컨텐트 END************ -->	
+	
+</th:block>
+</html>

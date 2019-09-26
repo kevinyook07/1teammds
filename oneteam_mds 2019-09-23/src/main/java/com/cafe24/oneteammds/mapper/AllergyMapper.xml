@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.AllergyMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getAllergyhList" 
+ 			resultType="com.cafe24.oneteammds.vo.Allergyh">
+ 		SELECT 
+ 			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergyh
+ 	</select>
+ 	<select id="getAllergyhById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Allergyh">
+		SELECT 
+ 			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergyh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getAllergyRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Allergyh">
+ 	REPLACE INTO 
+ 			allergy
+		SELECT
+			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergyh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getAllergydbList"
+			resultType="com.cafe24.oneteammds.vo.Allergy">
+		SELECT 
+ 			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergy
+	</select>
+ </mapper>

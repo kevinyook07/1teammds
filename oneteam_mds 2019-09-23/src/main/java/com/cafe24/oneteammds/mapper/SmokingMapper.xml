@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.SmokingMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getSmokinghList" 
+ 			resultType="com.cafe24.oneteammds.vo.Smokingh">
+ 		SELECT 
+ 			scCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , scrDate
+		FROM 
+			smokingh
+ 	</select>
+ 	<select id="getSmokinghById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Smokingh">
+		SELECT 
+ 			scCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , scrDate
+		FROM 
+			smokingh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getSmokingRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Smokingh">
+ 	REPLACE INTO 
+ 			smoking
+		SELECT
+			scCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , scrDate
+		FROM 
+			smokingh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getSmokingdbList"
+			resultType="com.cafe24.oneteammds.vo.Smoking">
+		SELECT 
+ 			scCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , scrDate
+		FROM 
+			smoking
+	</select>
+ </mapper>

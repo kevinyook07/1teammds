@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<br><h4 style="text-align:center">환자 전원 조치 수신 내역</h4>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+			<div class="col-lg-13">
+				<div class="block margin-bottom-sm">
+                 <div class="table-responsive"> 
+                 	<table class="table">
+                      <thead>
+                        <tr>
+							<th>선    택</th>
+							<th>전원 거부 및 허용 병원 코드</th>
+							<th>전원 요청 병원코드</th>
+							<th>환자 고유번호</th>
+							<th>거부사유</th>
+							<th>보낸날짜</th>
+						</tr>
+                      </thead>
+                      <tbody>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>병원 A 코드</td>
+							<td>병원 B 코드</td>
+							<td>홍길동 환자코드</td>
+							<td>의료기기 부족</td>
+							<td>2022-01-13</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>병원 C 코드</td>
+							<td>병원 A 코드</td>
+							<td>홍길순 환자코드</td>
+							<td>해당 없음</td>
+							<td>2022-02-01</td>
+						</tr>
+					  </tbody>
+                    </table>
+                  <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                         <br><br><br>
+                         <br><br><br>
+                         <a href="epatientsinsert" class="btn btn-secondary" style="float: right;">발송</a>
+                        </div>
+                      </div>
+              	</div>
+               </div>
+            </div>
+	</div>
+	<!--************메인 컨텐트 END************ -->	
+	
+</th:block>
+</html>

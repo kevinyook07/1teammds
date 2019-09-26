@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.YebangMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getYebanghList" 
+ 			resultType="com.cafe24.oneteammds.vo.Yebangh">
+ 		SELECT 
+ 			pibCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , piName
+ 		  , piCode
+ 		  , pivName
+ 		  , piBalance
+ 		  , pDoctor
+ 		  , piDate
+ 		  , adminId
+ 		  , pirDate
+		FROM 
+			yebangh
+ 	</select>
+ 	<select id="getYebanghById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Yebangh">
+		SELECT 
+ 			pibCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , piName
+ 		  , piCode
+ 		  , pivName
+ 		  , piBalance
+ 		  , pDoctor
+ 		  , piDate
+ 		  , adminId
+ 		  , pirDate
+		FROM 
+			yebangh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getYebangRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Yebangh">
+ 	REPLACE INTO 
+ 			yebang
+		SELECT
+			pibCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , piName
+ 		  , piCode
+ 		  , pivName
+ 		  , piBalance
+ 		  , pDoctor
+ 		  , piDate
+ 		  , adminId
+ 		  , pirDate
+		FROM 
+			yebangh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getYebangdbList"
+			resultType="com.cafe24.oneteammds.vo.Yebang">
+		SELECT 
+ 			pibCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , piName
+ 		  , piCode
+ 		  , pivName
+ 		  , piBalance
+ 		  , pDoctor
+ 		  , piDate
+ 		  , adminId
+ 		  , pirDate
+		FROM 
+			yebang
+	</select>
+ </mapper>

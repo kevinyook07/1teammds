@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">영상판독정보 리스트</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+              <div class="col-lg-12">
+                <div class="block">
+                  
+                  <div class="block-body">
+                    
+                     <table class="table">
+                      <thead>
+                      	<tr>
+					        <th>영상판독정보 코드</th>
+							<th>병원고유번호</th>
+							<th>환자고유번호</th>
+							<th>최종 판독내용</th>
+							<th>이미지 URL</th>
+							<th>판독의 성명</th>
+							<th>담당의</th>
+							<th>영상 촬영일시</th>
+							<th>영상 최종판독일자</th>
+							<th>등록자 고유번호</th>
+							<th>등록일자</th>
+							<th>전송 체크</th>
+					        <th>전송</th>
+				      	</tr>
+                      </thead>
+                      <tbody>		               							
+						<tr th:each="list:${pandoghList}">
+							<td th:text="${list.iidCode}"></td>
+							<td th:text="${list.hospitalId}"></td>
+							<td th:text="${list.patientId}"></td>
+							<td th:text="${list.liContent}"></td>
+							<td th:text="${list.iUrl}"></td>
+							<td th:text="${list.idName}"></td>
+							<td th:text="${list.pDoctor}"></td>
+							<td th:text="${list.ifdTime}"></td>
+							<td th:text="${list.iliDate}"></td>
+							<td th:text="${list.adminId}"></td>
+							<td th:text="${list.iidrDate}"></td>
+							<td><input id="inlineCheckbox" type="checkbox" value="option1"></td>
+							<td>
+								<a th:href="@{/pandogRegist(patientId=${list.patientId})}">전송</a>
+							</td>
+							
+						</tr>
+						
+                      </tbody>
+                    </table>
+                      <div class="line"></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

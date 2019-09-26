@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">병원 고유번호 리스트</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+			<div class="col-lg-12">
+				<div class="block margin-bottom-sm">
+                 <div class="table-responsive"> 
+                 	<table class="table">
+                      <thead>
+                        <tr>
+							<th>병원 고유번호</th>
+							<th>비밀번호</th>
+							<th>병원 이름</th>
+							<th>등록자 이름</th>
+							<th>등록날짜</th>
+							<th>상세 설정</th>
+						</tr>
+                      </thead>
+                      <tbody>
+						<tr>
+						    <td>330302</td>
+							<td>1234</td>
+							<td>a 병원</td>
+							<td>이홍길</td>
+							<td>2019-01-23</td>
+					      <td>
+					      <button type="submit" class="btn btn-secondary">수정</button>
+					      <button type="submit" class="btn btn-secondary">삭제</button>
+					      </td>
+						</tr>
+                      </tbody>
+                    </table>
+                  <div class="line"></div>
+              	</div>
+               </div>
+            </div>
+	</div>
+	<!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

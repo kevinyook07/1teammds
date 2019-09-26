@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">법정 전염성 감염병 등록</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+        
+        
+    
+       <div class="col-lg-12">
+                <div class="block"></br>
+                  <div class="block-body">
+                    <form class="form-horizontal" action="/junyumdbList" method="post">
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">법정 전염성 감염병 코드</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="lcidCode"
+						th:value="${junyumh.lcidCode}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">병원 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="hospitalId"
+						th:value="${junyumh.hospitalId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">환자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="patientId"
+						th:value="${junyumh.patientId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">감염병명</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="lcidName"
+						th:value="${junyumh.lcidName}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">환자분류</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lcidpGroup"
+						th:value="${junyumh.lcidpGroup}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">확진검사 결과</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lcidtResult"
+						th:value="${junyumh.lcidtResult}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">입원여부 </label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lcidinOut"
+						th:value="${junyumh.lcidinOut}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">추정감염지역</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lcidArea"
+						th:value="${junyumh.lcidArea}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">담당의</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="pDoctor"
+						th:value="${junyumh.pDoctor}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">발병일자</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lcidoDate"
+						th:value="${junyumh.lcidoDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">진단일자</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lciddDate"
+						th:value="${junyumh.lciddDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">신고일</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lcidrDate"
+						th:value="${junyumh.lcidrDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="adminId"
+						th:value="${junyumh.adminId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록일자</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="lcidDate"
+						th:value="${junyumh.lcidDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                          <button type="submit" class="btn btn-secondary" style="float: right;">등록</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

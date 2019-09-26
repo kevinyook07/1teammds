@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customTitle">
+	<title>진단내역등록</title>
+</th:block>
+<th:block layout:fragment="customContents">
+	<form action="/jindandbList" method="post">
+		<input type="text" name="dbCode"
+			   th:value="${jindanh.dbCode}">
+		<table border="1">
+			<tr>
+				<td>병원고유번호</td>
+				<td>
+					<input type="text" name="hospitalId"
+						th:value="${jindanh.hospitalId}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>환자고유번호</td>
+				<td>
+					<input type="text" name="patientId"
+						th:value="${jindanh.patientId}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>상병명</td>
+				<td>
+					<input type="text" name="dName"
+						th:value="${jindanh.dName}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>상병코드</td>
+				<td>
+					<input type="text" name="dCode"
+						th:value="${jindanh.dCode}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>진단일자</td>
+				<td>
+					<input type="text" name="dDate"
+						th:value="${jindanh.dDate}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>담당의</td>
+				<td>
+					<input type="text" name="pDoctor"
+						th:value="${jindanh.pDoctor}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>등록자고유번호</td>
+				<td>
+					<input type="text" name="adminId"
+						th:value="${jindanh.adminId}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>등록일자</td>
+				<td>
+					<input type="text" name="drDate"
+						th:value="${jindanh.drDate}" readonly="readonly">
+				</td>
+			</tr>
+			<tr style="text-align: center;">
+				<td colspan="2">
+					<button type="submit">등록완료</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</th:block>
+</html>

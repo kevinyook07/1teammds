@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.SusulMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getSusulhList" 
+ 			resultType="com.cafe24.oneteammds.vo.Susulh">
+ 		SELECT 
+ 			sbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sName
+ 		  , sCode
+ 		  , aKind
+ 		  , pDoctor
+ 		  , sdTime
+ 		  , adminId
+ 		  , sbDate
+		FROM 
+			susulh
+ 	</select>
+ 	<select id="getSusulhById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Susulh">
+		SELECT 
+ 			sbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sName
+ 		  , sCode
+ 		  , aKind
+ 		  , pDoctor
+ 		  , sdTime
+ 		  , adminId
+ 		  , sbDate
+		FROM 
+			susulh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getSusulRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Susulh">
+ 	REPLACE INTO 
+ 			susul
+		SELECT
+			sbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sName
+ 		  , sCode
+ 		  , aKind
+ 		  , pDoctor
+ 		  , sdTime
+ 		  , adminId
+ 		  , sbDate
+		FROM 
+			susulh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getSusuldbList"
+			resultType="com.cafe24.oneteammds.vo.Susul">
+		SELECT 
+ 			sbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , sName
+ 		  , sCode
+ 		  , aKind
+ 		  , pDoctor
+ 		  , sdTime
+ 		  , adminId
+ 		  , sbDate
+		FROM 
+			susul
+	</select>
+ </mapper>
