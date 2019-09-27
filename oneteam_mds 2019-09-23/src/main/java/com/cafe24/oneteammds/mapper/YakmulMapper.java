@@ -21,5 +21,10 @@ public interface YakmulMapper {
 		
 		// 시스템DB 
 		public List<Yakmul> getYakmuldbList();
+
 		
+		public int delYakmul(String mbCode, String hospitalId, String patientId);
+		
+		
+		public List<Yakmulh> getYakmulSearchList (String sk, String sv);
 }

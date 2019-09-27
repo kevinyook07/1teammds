@@ -79,4 +79,40 @@
 		FROM 
 			susul
 	</select>
+	
+	
+	
+	
+	<select id="getSusulSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Susul">
+	  	SELECT
+			 sbCode
+			,hospitalId
+			,patientId
+			,sName
+			,sCode
+			,aKind
+			,pDoctor
+			,sdTime
+			,adminId
+			,sbDate
+		FROM
+			 susulh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delSusul" parameterType="String">
+		DELETE
+		FROM susul
+		WHERE
+		sbCode = #{sbCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+	
+	
  </mapper>

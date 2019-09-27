@@ -15,44 +15,30 @@ import com.cafe24.oneteammds.vo.Jindan;
 import com.cafe24.oneteammds.vo.Jindanh;
 import com.cafe24.oneteammds.vo.Yakmul;
 
-
 @Service
 @Transactional
 public class JindanService {
-	
+
 	@Autowired
 	private JindanMapper jindanMapper;
-	
+
 	// 병원
-	public List<Jindanh> getJindanhList(){
+	public List<Jindanh> getJindanhList() {
 		return jindanMapper.getJindanhList();
 	}
-	
-	public Jindanh getJindanhById(String patientId) { 
-		return jindanMapper.getJindanhById(patientId); }
-	  
-	public int getJindanRegist(Jindan jindan) { 
-		return jindanMapper.getJindanRegist(jindan);
-	} 
-	
-	// 시스템 DB 
-	public List<Jindan> getJindandbList(){ 
-		return jindanMapper.getJindandbList(); 
+
+	public Jindanh getJindanhById(String patientId) {
+		return jindanMapper.getJindanhById(patientId);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public int getJindanRegist(Jindan jindan) {
+		return jindanMapper.getJindanRegist(jindan);
+	}
+
+	// 시스템 DB
+	public List<Jindan> getJindandbList() {
+		return jindanMapper.getJindandbList();
+	}
 
 	/*
 	 * @Autowired private JindanMapper diagnosisMapper;
@@ -69,5 +55,17 @@ public class JindanService {
 	 * map.put("functionalList", flist); map.put("medicationBreakdownList", mlist);
 	 * 
 	 * return map; }
+	 */
+
+	public List<Jindanh> getJindanSearchList(String sk, String sv) {
+		List<Jindanh> list = jindanMapper.getJindanSearchList(sk, sv);
+
+		return list;
+	}
+
+	/*
+	 * public int delJindan(String dbCode, String hospitalId, String patientId) {
+	 * 
+	 * return jindanMapper.delJindan(dbCode, hospitalId, patientId); }
 	 */
 }

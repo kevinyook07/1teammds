@@ -67,4 +67,33 @@
 		FROM 
 			smoking
 	</select>
+	
+	
+	<select id="getSmokingSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Smoking">
+	  	SELECT
+			 scCode
+			,hospitalId
+			,patientId
+			,sccName
+			,pDoctor
+			,adminId
+			,scrDate
+		FROM
+			 smokingh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delSmoking" parameterType="String">
+		DELETE
+		FROM smoking
+		WHERE
+		scCode = #{scCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
  </mapper>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.cafe24.oneteammds.mapper.YakmulMapper">
+ 
+	 <!-- 병원 -->
+ 	
+ 	<select	id="getYakmulhList" 
+ 			resultType="com.cafe24.oneteammds.vo.Yakmulh">
+ 		SELECT 
+ 			mbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , mmName
+ 		  , mmCode
+ 		  , miName
+ 		  , miCode
+ 		  , mVolume
+ 		  , mdUnit
+ 		  , mdNumber
+ 		  , mPeriod
+ 		  , mUsage
+ 		  , pDoctor
+ 		  , mdTime
+ 		  , adminId
+ 		  , mrDate
+		FROM 
+			yakmulh
+ 	</select>
+ 	<select id="getYakmulhById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Yakmulh">
+		SELECT 
+ 			mbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , mmName
+ 		  , mmCode
+ 		  , miName
+ 		  , miCode
+ 		  , mVolume
+ 		  , mdUnit
+ 		  , mdNumber
+ 		  , mPeriod
+ 		  , mUsage
+ 		  , pDoctor
+ 		  , mdTime
+ 		  , adminId
+ 		  , mrDate
+		FROM 
+			yakmulh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getYakmulRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Yakmulh">
+ 	REPLACE INTO 
+ 			yakmul
+		SELECT
+			mbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , mmName
+ 		  , mmCode
+ 		  , miName
+ 		  , miCode
+ 		  , mVolume
+ 		  , mdUnit
+ 		  , mdNumber
+ 		  , mPeriod
+ 		  , mUsage
+ 		  , pDoctor
+ 		  , mdTime
+ 		  , adminId
+ 		  , mrDate
+		FROM 
+			yakmulh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getYakmuldbList"
+			resultType="com.cafe24.oneteammds.vo.Yakmul">
+		SELECT 
+ 			mbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , mmName
+ 		  , mmCode
+ 		  , miName
+ 		  , miCode
+ 		  , mVolume
+ 		  , mdUnit
+ 		  , mdNumber
+ 		  , mPeriod
+ 		  , mUsage
+ 		  , pDoctor
+ 		  , mdTime
+ 		  , adminId
+ 		  , mrDate
+		FROM 
+			yakmul
+	</select>
+	
+	
+	
+	
+	<select id="getYakmulSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Yakmul">
+	  	SELECT 
+				 mbCode
+				,hospitalId
+				,patientId
+				,mmName
+				,mmCode
+				,miName
+				,miCode
+				,mVolume
+				,mdUnit
+				,mdNumber
+				,mPeriod
+				,mUsage
+				,pDoctor
+				,mdTime
+				,adminId
+				,mrDate				
+			FROM yakmul		
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delYakmul" parameterType="String">
+ 		DELETE 
+		FROM yakmul
+		WHERE
+				     mbCode = #{mbCode}
+			 and hospitalId = #{hospitalId}
+			  and patientId = #{patientId}
+ 	</delete>
+ 	
+ </mapper>

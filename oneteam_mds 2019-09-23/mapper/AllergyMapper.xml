@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.AllergyMapper">
+ 	
+ 	<!-- 병원 --> 	
+ 	<!-- 병원 db의 진료 리스트 알러지 및 부작용 조회 쿼리문 -->
+ 	<select	id="getAllergyhList" 
+ 			resultType="com.cafe24.oneteammds.vo.Allergyh">
+ 		SELECT 
+ 			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergyh
+ 	</select>
+ 	
+ 	<!-- 환자 고유번호를 통해 조회하는 쿼리문 -->
+ 	<select id="getAllergyhById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Allergyh">
+		SELECT 
+ 			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergyh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	
+ 	<!-- 기존에 있던 저장 db값을 대체 시키는 쿼리문 -->
+ 	<insert id="getAllergyRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Allergyh">
+ 	REPLACE INTO 
+ 			allergy
+		SELECT
+			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergyh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<!-- MDS db의 진료 리스트 알러지 및 부작용 조회 쿼리문 -->
+	<select id="getAllergydbList"
+			resultType="com.cafe24.oneteammds.vo.Allergy">
+		SELECT 
+ 			aseCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , asemFactor
+ 		  , asemfCode
+ 		  , aseName
+ 		  , aseReaction
+ 		  , pDoctor
+ 		  , asedTime
+ 		  , adminId
+ 		  , aserDate
+		FROM 
+			allergy
+	</select>
+		
+	<!-- 알러지 및 부작용의 항목 선택 후 검색 쿼리문 -->
+	<select id="getAllergySearchList1" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Allergy">
+	  	SELECT
+			 aseCode
+			,hospitalId
+			,patientId
+			,asemFactor
+			,asemfCode
+			,aseName
+			,aseReaction
+			,pDoctor
+			,asedTime
+			,adminId
+			,aserDate
+		FROM
+			 allergy
+		<if test="sv1 != null and sv1 neq ''.toString()">
+			WHERE 
+				${sk1} Like CONCAT('%',#{sv1},'%')		
+		</if>
+	
+	</select>
+	
+	<!-- 알러지 및 부작용의 text 입력 후 검색 쿼리문 -->
+	<select id="getAllergySearchList2" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Allergy">
+	  	SELECT
+			 aseCode
+			,hospitalId
+			,patientId
+			,asemFactor
+			,asemfCode
+			,aseName
+			,aseReaction
+			,pDoctor
+			,asedTime
+			,adminId
+			,aserDate
+		FROM
+			 allergy
+		<if test="sv2 != null and sv2 neq ''.toString()">
+			WHERE 
+				${sk2} Like CONCAT('%',#{sv2},'%')		
+		</if>
+	
+	</select>
+	
+	<!-- 알러지 및 부작용의 삭제 쿼리문 -->
+	<delete id="delAllergy" parameterType="String">
+		DELETE
+		FROM allergy
+		WHERE
+		aseCode = #{aseCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+ </mapper>

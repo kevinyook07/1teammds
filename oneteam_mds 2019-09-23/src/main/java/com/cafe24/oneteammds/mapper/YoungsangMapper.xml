@@ -79,4 +79,39 @@
 		FROM 
 			youngsang
 	</select>
+	
+	
+	
+	
+	<select id="getYoungsangSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Youngsang">
+	  	SELECT
+			 itrCode
+			,hospitalId
+			,patientId
+			,itName
+			,itCode
+			,itrValue
+			,pDoctor
+			,itdTime
+			,adminId
+			,itrDate
+		FROM
+			 youngsangh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	
+	<delete id="delYoungsang" parameterType="String">
+		DELETE
+		FROM youngsang
+		WHERE
+		itrCode = #{itrCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
  </mapper>

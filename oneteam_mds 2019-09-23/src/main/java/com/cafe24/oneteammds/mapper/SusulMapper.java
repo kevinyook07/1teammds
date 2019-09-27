@@ -24,4 +24,9 @@ public interface SusulMapper {
 	public List<Susul> getSusuldbList();
 	 
 	
+	public int delSusul(String sbCode, String hospitalId, String patientId);
+	
+	
+	public List<Susulh> getSusulSearchList (String sk, String sv);
+	
 }

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.cafe24.oneteammds.mapper.PatientMapper">
+	<select id="getPatientLogin"
+		parameterType="com.cafe24.oneteammds.vo.Patient" 
+		resultType="com.cafe24.oneteammds.vo.Patient">
+		SELECT 
+			 patientId	AS p_id
+			,patientPw	AS p_pw
+			,hospitalId	AS h_id
+			,pName		AS p_name
+			,pGender	AS p_gender
+			,pBirth		AS p_birth
+			,pPhone		AS p_phone
+			,pAddr		AS p_addr
+			,gName		AS g_name
+			,gPhone		AS g_phone
+			,adminId	AS a_id
+			,prDate		AS pr_date
+		FROM 
+			patient
+		WHERE
+				patientId = #{p_id}
+			and patientPw = #{p_pw}
+	</select>
+	
+	<select id="getPatientById" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Patient">
+		SELECT 
+			 patientId	AS p_id
+			,patientPw	AS p_pw
+			,hospitalId	AS h_id
+			,pName		AS p_name
+			,pGender	AS p_gender
+			,pBirth		AS p_birth
+			,pPhone		AS p_phone
+			,pAddr		AS p_addr
+			,gName		AS g_name
+			,gPhone		AS g_phone
+			,adminId	AS a_id
+			,prDate		AS pr_date
+		FROM 
+			patient
+		WHERE
+				patientId = #{p_id}
+	</select>
+	
+	<select id="getPatientList"
+		resultType="com.cafe24.oneteammds.vo.Patient">
+		SELECT 
+			 patientId	AS p_id
+			,patientPw	AS p_pw
+			,hospitalId	AS h_id
+			,pName		AS p_name
+			,pGender	AS p_gender
+			,pBirth		AS p_birth
+			,pPhone		AS p_phone
+			,pAddr		AS p_addr
+			,gName		AS g_name
+			,gPhone		AS g_phone
+			,adminId	AS a_id
+			,prDate		AS pr_date
+		FROM 
+			patient
+	</select>
+	
+	<select id="getPatientSearchList"
+		parameterType="String" 
+		resultType="com.cafe24.oneteammds.vo.Patient">
+		SELECT 
+			 patientId	AS p_id
+			,patientPw	AS p_pw
+			,hospitalId	AS h_id
+			,pName		AS p_name
+			,pGender	AS p_gender
+			,pBirth		AS p_birth
+			,pPhone		AS p_phone
+			,pAddr		AS p_addr
+			,gName		AS g_name
+			,gPhone		AS g_phone
+			,adminId	AS a_id
+			,prDate		AS pr_date
+		FROM 
+			patient
+		<if test="sv != null and sv neq ''.toString()">
+		WHERE
+			${sk} Like CONCAT('%',#{sv},'%')
+		</if>
+	</select>
+	
+	<insert id="addPatient"
+		parameterType="com.cafe24.oneteammds.vo.Patient">
+		INSERT INTO patient( 
+			 patientId
+			,patientPw
+			,hospitalId
+			,pName
+			,pGender
+			,pBirth
+			,pPhone
+			,pAddr
+			,gName
+			,gPhone
+			,adminId
+			,prDate
+		)VALUES( 
+			 #{p_id}
+			,#{p_pw}
+			,#{h_id}
+			,#{p_name}
+			,#{p_gender}
+			,#{p_birth}
+			,#{p_phone}
+			,#{p_addr}
+			,#{g_name}
+			,#{g_phone}
+			,#{a_id}
+			,NOW()
+		)
+	</insert>
+	
+	
+	<update id="modifyPatient"
+		parameterType="com.cafe24.oneteammds.vo.Patient">
+		UPDATE patient
+		SET  
+			 patientPw	= #{p_pw}
+			,pName		= #{p_name}
+			,pGender	= #{p_gender}
+			,pBirth		= #{p_birth}
+			,pPhone		= #{p_phone}
+			,pAddr		= #{p_addr}
+			,gName		= #{g_name}
+			,gPhone		= #{g_phone}
+		WHERE
+			patientId	= #{p_id}
+	</update>
+	
+	<delete id="delPatient"
+		parameterType="com.cafe24.oneteammds.vo.Patient" >
+		DELETE
+		FROM patient 
+		WHERE
+				 patientId	= #{p_id}
+			and  patientPw	= #{p_pw}
+	</delete>
+</mapper>

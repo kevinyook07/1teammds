@@ -87,4 +87,40 @@
 		FROM 
 			gumche
 	</select>
+	
+	
+	
+	<select id="getGumcheSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Gumche">
+	  	SELECT 
+			 strCode
+			,hospitalId
+			,patientId
+			,stiName
+			,stiCode
+			,stName
+			,strValue
+			,strrValue
+			,pDoctor
+			,stdTime
+			,adminId
+			,strDate			
+		FROM gumcheh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	
+	 <delete id="delGumche" parameterType="String">
+ 		DELETE 
+		FROM gumche
+		WHERE
+				     strCode = #{strCode}
+			 and hospitalId = #{hospitalId}
+			  and patientId = #{patientId}
+ 	</delete>
+	 
  </mapper>

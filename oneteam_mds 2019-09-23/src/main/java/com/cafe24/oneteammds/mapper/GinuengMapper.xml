@@ -79,4 +79,39 @@
 		FROM 
 			ginueng
 	</select>
+	
+	
+	
+	
+	<select id="getGinuengSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Ginueng">
+	  	SELECT
+			 ftrCode
+			,hospitalId
+			,patientId
+			,ftName
+			,ftCode
+			,ftrValue
+			,pDoctor
+			,ftdTime
+			,adminId
+			,ftrDate
+		FROM
+			 ginuengh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delGinueng" parameterType="String">
+		DELETE
+		FROM ginueng
+		WHERE
+		ftrCode = #{ftrCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+	
  </mapper>

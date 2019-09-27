@@ -24,4 +24,10 @@ public interface SmokingMapper {
 	public List<Smoking> getSmokingdbList();
 	 
 	
+	
+	public int delSmoking(String scCode, String hospitalId, String patientId);
+	
+	
+	public List<Smokingh> getSmokingSearchList (String sk, String sv);
+	
 }

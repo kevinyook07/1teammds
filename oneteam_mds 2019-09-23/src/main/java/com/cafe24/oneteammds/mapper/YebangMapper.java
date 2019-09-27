@@ -23,5 +23,7 @@ public interface YebangMapper {
 	// 시스템DB 
 	public List<Yebang> getYebangdbList();
 	 
+	public List<Yebangh> getYebangSearchList (String sk, String sv);
 	
+	public int delYebang(String pibCode, String hospitalId, String patientId);
 }

@@ -79,4 +79,37 @@
 		FROM 
 			byungri
 	</select>
+	
+	
+	
+	<select id="getByungriSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Byungri">
+	  	SELECT
+			 ptrCode
+			,hospitalId
+			,patientId
+			,ptName
+			,ptCode
+			,ptrValue
+			,pDoctor
+			,ptdTime
+			,adminId
+			,ptrDate		
+		FROM
+			 byungrih
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delByungri" parameterType="String">
+		DELETE
+		FROM byungri
+		WHERE
+		ptrCode = #{ptrCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
  </mapper>

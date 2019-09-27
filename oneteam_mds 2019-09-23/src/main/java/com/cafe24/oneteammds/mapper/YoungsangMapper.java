@@ -23,5 +23,9 @@ public interface YoungsangMapper {
 	// 시스템DB 
 	public List<Youngsang> getYoungsangdbList();
 	 
+
+	public List<Youngsangh> getYoungsangSearchList (String sk, String sv);
+	
+	public int delYoungsang(String itrCode, String hospitalId, String patientId);
 	
 }

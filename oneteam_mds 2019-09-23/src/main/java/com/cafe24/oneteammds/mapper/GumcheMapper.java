@@ -20,9 +20,13 @@ public interface GumcheMapper {
 	public Gumcheh getGumchehById(String patientId);
 	  
 	public int getGumcheRegist(Gumche gumche);
-	  
+	 
+	public List<Gumcheh> getGumcheSearchList (String sk, String sv);
 	// 시스템DB 
 	public List<Gumche> getGumchedbList();
 	 
+	public int delGumche(String strCode, String hospitalId, String patientId);
+	
+	
 	
 }

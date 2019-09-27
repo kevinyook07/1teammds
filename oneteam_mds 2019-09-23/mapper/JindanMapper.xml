@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.cafe24.oneteammds.mapper.JindanMapper">
+ 
+ 	 	<!-- 병원 -->
+ 	
+ 	<select	id="getJindanhList" 
+ 			resultType="com.cafe24.oneteammds.vo.Jindanh">
+ 		SELECT 
+ 			dbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dName
+ 		  , dCode
+ 		  , dDate
+ 		  , pDoctor
+ 		  , adminId
+ 		  , drDate
+
+		FROM 
+			jindanh
+ 	</select>
+ 	<select id="getJindanhById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Jindanh">
+		SELECT 
+ 			dbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dName
+ 		  , dCode
+ 		  , dDate
+ 		  , pDoctor
+ 		  , adminId
+ 		  , drDate
+
+		FROM 
+			jindanh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getJindanRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Jindanh">
+ 	REPLACE INTO 
+ 			jindan
+		SELECT
+			dbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dName
+ 		  , dCode
+ 		  , dDate
+ 		  , pDoctor
+ 		  , adminId
+ 		  , drDate
+
+		FROM 
+			jindanh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getJindandbList"
+			resultType="com.cafe24.oneteammds.vo.Jindan">
+		SELECT 
+ 			dbCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dName
+ 		  , dCode
+ 		  , dDate
+ 		  , pDoctor
+ 		  , adminId
+ 		  , drDate
+
+		FROM 
+			jindan
+	</select>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	 <!-- <select id="allergyList" resultType="com.cafe24.oneteammds.vo.Allergy">
+		SELECT 
+			aseCode
+			, hospitalId
+			, patientId
+			, asemFactor
+			, asemfCode
+			, aseName
+			, aseReaction
+			, pDoctor
+			, asedTime
+			, adminId
+			, aserDate
+		FROM 
+			allergy
+	 </select>
+	 
+	 <select id="diagnosisBreakdownList" resultType="com.cafe24.oneteammds.vo.Jindan">
+		SELECT 
+			dbCode
+		  , hospitalId
+		  , patientId
+		  , dName
+		  , dCode
+		  , dDate
+		  , pDoctor
+		  , adminId
+		  , drDate
+		FROM 
+			jindan 
+	 </select>
+	 
+	 <select id="functionalList" resultType="com.cafe24.oneteammds.vo.Ginueng">
+		SELECT 
+			ftrCode
+			, hospitalId
+			, patientId
+			, ftName
+			, ftCode
+			, ftrValue
+			, pDoctor
+			, ftdTime
+			, adminId
+			, ftrDate
+		FROM 
+			ginueng
+	 </select>
+	 
+	 <select id="medicationBreakdownList" resultType="com.cafe24.oneteammds.vo.Yakmul">
+		SELECT 
+			mbCode
+			, hospitalId
+			, patientId
+			, mmName
+			, mmCode
+			, miName
+			, miCode
+			, mVolume
+			, mdUnit
+			, mdNumber
+			, mPeriod
+			, mUsage
+			, pDoctor
+			, mdTime
+			, adminId
+			, mrDate
+		FROM 
+			yakmul
+	 </select> -->
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<select id="getJindanSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Jindan">
+	  	SELECT 
+			dbcode 		
+			,hospitalId 	
+			,patientId 		
+			,dName 			
+			,dCode 			
+			,dDate 		
+			,pDoctor 		
+			,adminId 		
+			,drDate 
+		FROM jindan
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	</select>
+	
+	<delete id="delJindan" parameterType="String">
+ 		DELETE 
+		FROM jindan
+		WHERE
+				     dbCode = #{dbCode}
+			 and hospitalId = #{hospitalId}
+			  and patientId = #{patientId}
+ 	</delete>
+ </mapper>

@@ -83,4 +83,40 @@
 		FROM 
 			yebang
 	</select>
+	
+	
+	
+	
+	<select id="getYebangSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Yebang">
+	  	SELECT
+			 pibCode
+			,hospitalId
+			,patientId
+			,piName
+			,piCode
+			,pivName
+			,piBalance
+			,pDoctor
+			,piDate
+			,adminId
+			,pirDate
+		FROM
+			 yebangh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	
+	<delete id="delYebang" parameterType="String">
+		DELETE
+		FROM yebang
+		WHERE
+		pibCode = #{pibCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
  </mapper>

@@ -10,31 +10,41 @@ import com.cafe24.oneteammds.mapper.JunyumMapper;
 import com.cafe24.oneteammds.vo.Junyum;
 import com.cafe24.oneteammds.vo.Junyumh;
 
-
-
-
 @Service
 @Transactional
 public class JunyumService {
 
 	@Autowired
 	private JunyumMapper junyumMapper;
-	
+
 	// 병원
-	public List<Junyumh> getJunyumhList(){
+	public List<Junyumh> getJunyumhList() {
 		return junyumMapper.getJunyumhList();
 	}
-	
-	public Junyumh getJunyumhById(String patientId) { 
-		return junyumMapper.getJunyumhById(patientId); }
-	  
-	public int getJunyumRegist(Junyum junyum) { 
-		return junyumMapper.getJunyumRegist(junyum);
-	} 
-	
-	// 시스템 DB 
-	public List<Junyum> getJunyumdbList(){ 
-		return junyumMapper.getJunyumdbList(); 
+
+	public Junyumh getJunyumhById(String patientId) {
+		return junyumMapper.getJunyumhById(patientId);
 	}
-	 
+
+	public int getJunyumRegist(Junyum junyum) {
+		return junyumMapper.getJunyumRegist(junyum);
+	}
+
+	// 시스템 DB
+	public List<Junyum> getJunyumdbList() {
+		return junyumMapper.getJunyumdbList();
+	}
+
+	public List<Junyumh> getJunyumSearchList(String sk, String sv) {
+
+		List<Junyumh> list = junyumMapper.getJunyumSearchList(sk, sv);
+
+		return list;
+	}
+
+	public int delJunyum(String lcidCode, String hospitalId, String patientId) {
+
+		return junyumMapper.delJunyum(lcidCode, hospitalId, patientId);
+	}
+
 }

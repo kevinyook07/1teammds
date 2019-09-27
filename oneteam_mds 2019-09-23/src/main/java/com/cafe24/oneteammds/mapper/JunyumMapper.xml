@@ -95,4 +95,42 @@
 		FROM 
 			junyum
 	</select>
+	
+	
+	
+	<select id="getJunyumSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Junyum">
+	  	SELECT
+			 lcidCode
+			,hospitalId
+			,patientId
+			,lcidName
+			,lcidpGroup
+			,lcidtResult
+			,lcidinOut
+			,lcidArea
+			,pDoctor
+			,lcidoDate
+			,lciddDate
+			,lcidrDate
+			,adminId
+			,lcidDate
+		FROM
+			 junyumh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delJunyum" parameterType="String">
+		DELETE
+		FROM junyum
+		WHERE
+		lcidCode = #{lcidCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+	
  </mapper>

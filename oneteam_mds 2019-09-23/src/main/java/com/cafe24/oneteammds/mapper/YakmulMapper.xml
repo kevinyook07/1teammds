@@ -104,5 +104,44 @@
 		FROM 
 			yakmul
 	</select>
+	
+	
+	
+	
+	<select id="getYakmulSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Yakmul">
+	  	SELECT 
+				 mbCode
+				,hospitalId
+				,patientId
+				,mmName
+				,mmCode
+				,miName
+				,miCode
+				,mVolume
+				,mdUnit
+				,mdNumber
+				,mPeriod
+				,mUsage
+				,pDoctor
+				,mdTime
+				,adminId
+				,mrDate				
+			FROM yakmulh	
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delYakmul" parameterType="String">
+ 		DELETE 
+		FROM yakmul
+		WHERE
+				     mbCode = #{mbCode}
+			 and hospitalId = #{hospitalId}
+			  and patientId = #{patientId}
+ 	</delete>
  	
  </mapper>

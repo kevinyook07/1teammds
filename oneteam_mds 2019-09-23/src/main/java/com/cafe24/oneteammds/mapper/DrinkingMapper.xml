@@ -67,4 +67,35 @@
 		FROM 
 			drinking
 	</select>
+	
+	
+	
+	
+	<select id="getDrinkingSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Drinking">
+	  	SELECT
+			 dcCode
+			,hospitalId
+			,patientId
+			,dccName
+			,pDoctor
+			,adminId
+			,dcrDate
+		FROM
+			 drinkingh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delDrinking" parameterType="String">
+		DELETE
+		FROM drinking
+		WHERE
+		dcCode = #{dcCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
  </mapper>

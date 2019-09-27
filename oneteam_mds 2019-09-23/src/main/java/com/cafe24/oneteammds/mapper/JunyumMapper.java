@@ -23,6 +23,10 @@ public interface JunyumMapper {
 	  
 	// 시스템DB 
 	public List<Junyum> getJunyumdbList();
-	 
+	
+	
+	public int delJunyum(String lcidCode, String hospitalId, String patientId);
+	
+	public List<Junyumh> getJunyumSearchList (String sk, String sv);
 	
 }

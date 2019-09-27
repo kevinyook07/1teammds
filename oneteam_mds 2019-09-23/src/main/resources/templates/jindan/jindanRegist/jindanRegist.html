@@ -1,78 +1,108 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/default}">
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
 
-<th:block layout:fragment="customTitle">
-	<title>¡¯¥‹≥ªø™µÓ∑œ</title>
-</th:block>
 <th:block layout:fragment="customContents">
-	<form action="/jindandbList" method="post">
-		<input type="text" name="dbCode"
-			   th:value="${jindanh.dbCode}">
-		<table border="1">
-			<tr>
-				<td>∫¥ø¯∞Ì¿Øπ¯»£</td>
-				<td>
-					<input type="text" name="hospitalId"
+	<div class="page-content">
+	 <!-- **************ÏúóÏÉÅÎã® Î©îÏù∏ Î©îÎâ¥ ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">ÏßÑÎã®ÎÇ¥Ïó≠ Îì±Î°ù</h2>
+			<div class="container-fluid"></div>
+	<!-- **************ÏúóÏÉÅÎã® Î©îÏù∏ Î©îÎâ¥END ************** -->
+	<!--************Î©îÏù∏ Ïª®ÌÖêÌä∏ ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+        
+        
+    
+       <div class="col-lg-12">
+                <div class="block"></br>
+                  <div class="block-body">
+                  	<form class="form-horizontal" action="/jindandbList" method="post">
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">ÏßÑÎã®ÎÇ¥Ïó≠ ÏΩîÎìú</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="dbCode"
+						th:value="${jindanh.dbCode}" readonly="readonly">
+                        </div>
+                      </div>                  
+                    
+                      
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">Î≥ëÏõê Í≥†Ïú†Î≤àÌò∏</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="hospitalId"
 						th:value="${jindanh.hospitalId}" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>»Ø¿⁄∞Ì¿Øπ¯»£</td>
-				<td>
-					<input type="text" name="patientId"
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">ÌôòÏûê Í≥†Ïú†Î≤àÌò∏</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="patientId"
 						th:value="${jindanh.patientId}" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>ªÛ∫¥∏Ì</td>
-				<td>
-					<input type="text" name="dName"
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">ÏÉÅÎ≥ëÎ™Ö</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="dName"
 						th:value="${jindanh.dName}" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>ªÛ∫¥ƒ⁄µÂ</td>
-				<td>
-					<input type="text" name="dCode"
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">ÏßÑÎã®ÏΩîÎìú</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="dCode"
 						th:value="${jindanh.dCode}" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>¡¯¥‹¿œ¿⁄</td>
-				<td>
-					<input type="text" name="dDate"
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">ÏßÑÎã®ÏùºÏûê</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="dDate"
 						th:value="${jindanh.dDate}" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>¥„¥Á¿«</td>
-				<td>
-					<input type="text" name="pDoctor"
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Îã¥ÎãπÏùò</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="pDoctor"
 						th:value="${jindanh.pDoctor}" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>µÓ∑œ¿⁄∞Ì¿Øπ¯»£</td>
-				<td>
-					<input type="text" name="adminId"
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Îì±Î°ùÏûê</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="adminId"
 						th:value="${jindanh.adminId}" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>µÓ∑œ¿œ¿⁄</td>
-				<td>
-					<input type="text" name="drDate"
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Îì±Î°ùÏùºÏûê</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="drDate"
 						th:value="${jindanh.drDate}" readonly="readonly">
-				</td>
-			</tr>
-			<tr style="text-align: center;">
-				<td colspan="2">
-					<button type="submit">µÓ∑œøœ∑·</button>
-				</td>
-			</tr>
-		</table>
-	</form>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                          <button type="submit" class="btn btn-secondary" style="float: right;">Îì±Î°ù</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!--************Î©îÏù∏ Ïª®ÌÖêÌä∏ END************ -->	
 </th:block>
 </html>

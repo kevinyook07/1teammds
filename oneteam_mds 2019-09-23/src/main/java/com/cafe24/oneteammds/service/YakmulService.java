@@ -10,29 +10,39 @@ import com.cafe24.oneteammds.mapper.YakmulMapper;
 import com.cafe24.oneteammds.vo.Yakmul;
 import com.cafe24.oneteammds.vo.Yakmulh;
 
-
-
 @Service
 @Transactional
 public class YakmulService {
 
 	@Autowired
 	private YakmulMapper yakmulMapper;
-	
+
 	// 병원
-		public List<Yakmulh> getYakmulhList(){
-			return yakmulMapper.getYakmulhList();
-		}
-		
-		public Yakmulh getYakmulhById(String patientId) { 
-			return yakmulMapper.getYakmulhById(patientId); }
-		  
-		public int getYakmulRegist(Yakmul yakmul) { 
-			return yakmulMapper.getYakmulRegist(yakmul);
-		} 
-		
-		// 시스템 DB 
-		public List<Yakmul> getYakmuldbList(){ 
-			return yakmulMapper.getYakmuldbList(); 
-		}
+	public List<Yakmulh> getYakmulhList() {
+		return yakmulMapper.getYakmulhList();
+	}
+
+	public Yakmulh getYakmulhById(String patientId) {
+		return yakmulMapper.getYakmulhById(patientId);
+	}
+
+	public int getYakmulRegist(Yakmul yakmul) {
+		return yakmulMapper.getYakmulRegist(yakmul);
+	}
+
+	// 시스템 DB
+	public List<Yakmul> getYakmuldbList() {
+		return yakmulMapper.getYakmuldbList();
+	}
+
+	public List<Yakmulh> getYakmulSearchList(String sk, String sv) {
+		List<Yakmulh> list = yakmulMapper.getYakmulSearchList(sk, sv);
+
+		return list;
+	}
+
+	public int delYakmul(String mbCode, String hospitalId, String patientId) {
+
+		return yakmulMapper.delYakmul(mbCode, hospitalId, patientId);
+	}
 }

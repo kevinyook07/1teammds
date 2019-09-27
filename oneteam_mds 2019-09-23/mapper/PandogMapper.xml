@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.PandogMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getPandoghList" 
+ 			resultType="com.cafe24.oneteammds.vo.Pandogh">
+ 		SELECT 
+ 			iidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , liContent
+ 		  , iUrl
+ 		  , idName
+ 		  , pDoctor
+ 		  , ifdTime
+ 		  , iliDate
+ 		  , adminId
+ 		  , iidrDate
+		FROM 
+			pandogh
+ 	</select>
+ 	<select id="getPandoghById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Pandogh">
+		SELECT 
+ 			iidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , liContent
+ 		  , iUrl
+ 		  , idName
+ 		  , pDoctor
+ 		  , ifdTime
+ 		  , iliDate
+ 		  , adminId
+ 		  , iidrDate
+		FROM 
+			pandogh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getPandogRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Pandogh">
+ 	REPLACE INTO 
+ 			pandog
+		SELECT
+			iidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , liContent
+ 		  , iUrl
+ 		  , idName
+ 		  , pDoctor
+ 		  , ifdTime
+ 		  , iliDate
+ 		  , adminId
+ 		  , iidrDate
+		FROM 
+			pandogh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getPandogdbList"
+			resultType="com.cafe24.oneteammds.vo.Pandog">
+		SELECT 
+ 			iidCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , liContent
+ 		  , iUrl
+ 		  , idName
+ 		  , pDoctor
+ 		  , ifdTime
+ 		  , iliDate
+ 		  , adminId
+ 		  , iidrDate
+		FROM 
+			pandog
+	</select>
+	
+	
+	
+	
+	
+	<select id="getPandogSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Pandog">
+	  	SELECT
+			 iidCode
+			,hospitalId
+			,patientId
+			,liContent
+			,iUrl
+			,idName
+			,pDoctor
+			,ifdTime
+			,iliDate
+			,adminId
+			,iidrDate
+		FROM
+			 pandog
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	
+	<delete id="delPandog" parameterType="String">
+		DELETE
+		FROM pandog
+		WHERE
+		iidCode = #{iidCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+ </mapper>

@@ -19,25 +19,42 @@
                   
                   <div class="block-body">
                     
+                    
+                    <form action="/junyumhList" method="post">
+		<select name="sk">
+			<option value="lcidCode">법정 전염성 감염병 코드</option>
+			<option value="hospitalId">병원 고유번호</option>
+			<option value="patientId">환자고유번호</option>
+			<option value="lcidName">감염병명</option>
+			<option value="lcidpGroup">환자분류</option>
+			<option value="lcidtResult">확진검사 결과</option>
+			<option value="lcidinOut">입원여부</option>
+			<option value="lcidArea">추정감염지역</option>																
+		</select>
+		<input type="text" name="sv">
+		<button type="submit">검색</button>
+	</form>
+                    
+                    
                      <table class="table">
                       <thead>
                       	<tr>
-					        <th>법정 전염성 감염병 코드</th>
-							<th>병원고유번호</th>
-							<th>환자고유번호</th>
-							<th>감염병명</th>
-							<th>환자분류</th>
-							<th>확진검사 결과</th>
-							<th>입원여부</th>
-							<th>추정감염지역</th>
-							<th>담당의</th>
-							<th>발병일자</th>
-							<th>진단일자</th>
-							<th>신고일</th>
-							<th>등록자 고유번호</th>
-							<th>등록일자</th>
-					        <th>전송 체크</th>
-					        <th>전송</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">법정 전염성 감염병 코드</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">병원고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">환자고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">감염병명</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">환자분류</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">확진검사 결과</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">입원여부</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">추정감염지역</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">담당의</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">발병일자</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">진단일자</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">신고일</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록자 고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록일자</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송 체크</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송</th>
 				      	</tr>
                       </thead>
                       <tbody>		               							
@@ -58,7 +75,9 @@
 							<td th:text="${list.lcidDate}"></td>
 							<td><input id="inlineCheckbox" type="checkbox" value="option1"></td>
 							<td>
-								<a th:href="@{/junyumRegist(patientId=${list.patientId})}">전송</a>
+								<a th:href="@{/junyumRegist(patientId=${list.patientId})}">
+									<button type="submit" class="btn btn-secondary" style="float: right;">전송</button>
+								</a>
 							</td>
 							
 						</tr>

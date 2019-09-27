@@ -9,20 +9,24 @@
           <div class="navbar-header">
             <!-- Navbar Header-->
             <a href="/" class="navbar-brand">
-              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">진료정보 공유 시스템 / 2019.09.25</strong></div>
+              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">진료정보 공유 시스템</strong></div>
               <div class="brand-text brand-sm"><strong class="text-primary">MDS</strong></div>
             </a>
             <!-- Sidebar Toggle Btn-->
             <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
           </div>
             <!-- Log out               -->
-            <div class="list-inline-item logout">
-            <a class="nav-link" th:href="@{/login}" th:if="${session.SID eq null}">로그인</a>
+     <div>
+     
+            <a class="nav-link navbar-brand btn btn-light" th:href="@{/mainLogin}" th:if="${session.SID eq null}">로그인</a>
+         	<a class="nav-link navbar-brand btn btn-light" th:href="@{/addMain}" th:if="${session.SID eq null}">회원등록</a>
             <th:block  th:unless="${session.SID eq null}">
-				<a class="navbar-brand" th:href="@{/logout}">로그아웃</a> 
+				<a class="navbar-brand btn btn-light" th:href="@{/logout}">로그아웃</a>
 			</th:block>
             </div>
+            
           </div>
+      
       </nav>
     </header>
    <!-- JavaScript files-->

@@ -10,31 +10,40 @@ import com.cafe24.oneteammds.mapper.PandogMapper;
 import com.cafe24.oneteammds.vo.Pandog;
 import com.cafe24.oneteammds.vo.Pandogh;
 
-
-
-
 @Service
 @Transactional
 public class PandogService {
 
 	@Autowired
 	private PandogMapper pandogMapper;
-	
+
 	// 병원
-	public List<Pandogh> getPandoghList(){
+	public List<Pandogh> getPandoghList() {
 		return pandogMapper.getPandoghList();
 	}
-	
-	public Pandogh getPandoghById(String patientId) { 
-		return pandogMapper.getPandoghById(patientId); }
-	  
-	public int getPandogRegist(Pandog pandog) { 
-		return pandogMapper.getPandogRegist(pandog);
-	} 
-	
-	// 시스템 DB 
-	public List<Pandog> getPandogdbList(){ 
-		return pandogMapper.getPandogdbList(); 
+
+	public Pandogh getPandoghById(String patientId) {
+		return pandogMapper.getPandoghById(patientId);
 	}
-	 
+
+	public int getPandogRegist(Pandog pandog) {
+		return pandogMapper.getPandogRegist(pandog);
+	}
+
+	// 시스템 DB
+	public List<Pandog> getPandogdbList() {
+		return pandogMapper.getPandogdbList();
+	}
+
+	public List<Pandogh> getPandogSearchList(String sk, String sv) {
+
+		List<Pandogh> list = pandogMapper.getPandogSearchList(sk, sv);
+
+		return list;
+	}
+
+	public int delPandog(String iidCode, String hospitalId, String patientId) {
+
+		return pandogMapper.delPandog(iidCode, hospitalId, patientId);
+	}
 }

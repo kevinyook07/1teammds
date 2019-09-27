@@ -22,6 +22,11 @@ public interface SaengchaeMapper {
 	  
 	// 시스템DB 
 	public List<Saengchae> getSaengchaedbList();
-	 
+	
+	
+	public int delSaengchae(String vscCode, String hospitalId, String patientId);
+	
+	
+	public List<Saengchaeh> getSaengchaeSearchList (String sk, String sv);
 	
 }

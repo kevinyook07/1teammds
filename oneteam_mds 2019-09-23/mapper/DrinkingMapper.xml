@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.DrinkingMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getDrinkinghList" 
+ 			resultType="com.cafe24.oneteammds.vo.Drinkingh">
+ 		SELECT 
+ 			dcCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , dcrDate
+		FROM 
+			drinkingh
+ 	</select>
+ 	<select id="getDrinkinghById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Drinkingh">
+		SELECT 
+ 			dcCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , dcrDate
+		FROM 
+			drinkingh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getDrinkingRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Drinkingh">
+ 	REPLACE INTO 
+ 			drinking
+		SELECT
+			dcCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , dcrDate
+		FROM 
+			drinkingh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getDrinkingdbList"
+			resultType="com.cafe24.oneteammds.vo.Drinking">
+		SELECT 
+ 			dcCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , dccName
+ 		  , pDoctor
+ 		  , adminId
+ 		  , dcrDate
+		FROM 
+			drinking
+	</select>
+	
+	
+	
+	
+	<select id="getDrinkingSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Drinking">
+	  	SELECT
+			 dcCode
+			,hospitalId
+			,patientId
+			,dccName
+			,pDoctor
+			,adminId
+			,dcrDate
+		FROM
+			 drinking
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delDrinking" parameterType="String">
+		DELETE
+		FROM drinking
+		WHERE
+		dcCode = #{dcCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+ </mapper>

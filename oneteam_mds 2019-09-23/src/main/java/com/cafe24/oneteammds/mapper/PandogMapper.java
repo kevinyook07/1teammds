@@ -25,4 +25,8 @@ public interface PandogMapper {
 	public List<Pandog> getPandogdbList();
 	 
 	
+	public int delPandog(String iidCode, String hospitalId, String patientId);
+	
+	
+	public List<Pandogh> getPandogSearchList (String sk, String sv);
 }

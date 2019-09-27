@@ -19,9 +19,15 @@ public interface AllergyMapper {
 	public Allergyh getAllergyhById(String patientId);
 	  
 	public int getAllergyRegist(Allergy allergy);
-	  
+	
+	//병원 검색.
+	public List<Allergyh> getAllergySearchList1 (String sk1, String sv1);
+	
+	
 	// 시스템DB 
 	public List<Allergy> getAllergydbList();
 	 
+	/* public List<Allergy> getAllergySearchList2 (String sk2, String sv2); */
 	
+	public int delAllergy(String aseCode, String hospitalId, String patientId);
 }

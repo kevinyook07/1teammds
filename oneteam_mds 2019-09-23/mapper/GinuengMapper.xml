@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.GinuengMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getGinuenghList" 
+ 			resultType="com.cafe24.oneteammds.vo.Ginuengh">
+ 		SELECT 
+ 			ftrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , ftName
+ 		  , ftCode
+ 		  , ftrValue
+ 		  , pDoctor
+ 		  , ftdTime
+ 		  , adminId
+ 		  , ftrDate
+		FROM 
+			ginuengh
+ 	</select>
+ 	<select id="getGinuenghById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Ginuengh">
+		SELECT 
+ 			ftrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , ftName
+ 		  , ftCode
+ 		  , ftrValue
+ 		  , pDoctor
+ 		  , ftdTime
+ 		  , adminId
+ 		  , ftrDate
+		FROM 
+			ginuengh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getGinuengRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Ginuengh">
+ 	REPLACE INTO 
+ 			ginueng
+		SELECT
+			ftrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , ftName
+ 		  , ftCode
+ 		  , ftrValue
+ 		  , pDoctor
+ 		  , ftdTime
+ 		  , adminId
+ 		  , ftrDate
+		FROM 
+			ginuengh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getGinuengdbList"
+			resultType="com.cafe24.oneteammds.vo.Ginueng">
+		SELECT 
+ 			ftrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , ftName
+ 		  , ftCode
+ 		  , ftrValue
+ 		  , pDoctor
+ 		  , ftdTime
+ 		  , adminId
+ 		  , ftrDate
+		FROM 
+			ginueng
+	</select>
+	
+	
+	
+	
+	<select id="getGinuengSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Ginueng">
+	  	SELECT
+			 ftrCode
+			,hospitalId
+			,patientId
+			,ftName
+			,ftCode
+			,ftrValue
+			,pDoctor
+			,ftdTime
+			,adminId
+			,ftrDate
+		FROM
+			 ginueng
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delGinueng" parameterType="String">
+		DELETE
+		FROM ginueng
+		WHERE
+		ftrCode = #{ftrCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+	
+ </mapper>

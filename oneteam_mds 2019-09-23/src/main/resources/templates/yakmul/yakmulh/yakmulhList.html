@@ -18,27 +18,44 @@
                   
                   <div class="block-body">
                     
+                    
+                    
+                    <form action="/yakmulhList" method="post">
+		<select name="sk">
+			<option value="mbCode">약물처방내역 코드</option>
+			<option value="hospitalId">병원 고유번호</option>
+			<option value="patientId">환자고유번호</option>
+			<option value="mmName">처방약품명</option>
+			<option value="mmCode">처방약품코드</option>			
+		</select>
+		<input type="text" name="sv">
+		<button type="submit">검색</button>
+	</form>
+                    
+                    
+                    
+                    
                      <table class="table">
                       <thead>
                       	<tr>
-					        <th>약물처방내역 코드</th>
-					        <th>병원 고유번호</th>
-					        <th>환자 고유번호</th>
-					        <th>처방약품명</th>
-					        <th>처방약품코드</th>
-					        <th>주성분명</th>
-					        <th>주성분코드</th>
-					        <th>용량</th>
-					        <th>복용단위</th>
-					        <th>횟수</th>
-					        <th>투여기간</th>
-					        <th>용법</th>
-					        <th>담당의</th>
-					        <th>처방일시</th>
-					        <th>등록자 고유번호</th>
-					        <th>등록일자</th>
-					        <th>전송 체크</th>
-					        <th>전송</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">약물처방내역 코드</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">병원 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">환자 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">처방약품명</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">처방약품코드</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">주성분명</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">주성분코드</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">용량</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">복용단위</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">횟수</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">투여기간</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">용법</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">담당의</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">처방일시</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록자 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록일자</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송 체크</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송</th>
 				      	</tr>
                       </thead>
                       <tbody>		               							
@@ -61,7 +78,9 @@
 							<td th:text="${list.mrDate}"></td>
 							<td><input id="inlineCheckbox" type="checkbox" value="option1"></td>
 							<td>
-								<a th:href="@{/yakmulRegist(patientId=${list.patientId})}">전송</a>
+								<a th:href="@{/yakmulRegist(patientId=${list.patientId})}">
+									<button type="submit" class="btn btn-secondary" style="float: right;">전송</button>
+								</a>
 							</td>
 							
 						</tr>

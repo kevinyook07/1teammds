@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.cafe24.oneteammds.mapper.YoungsangMapper">
+ 	
+ 	<!-- 병원 -->
+ 	
+ 	<select	id="getYoungsanghList" 
+ 			resultType="com.cafe24.oneteammds.vo.Youngsangh">
+ 		SELECT 
+ 			itrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , itName
+ 		  , itCode
+ 		  , itrValue
+ 		  , pDoctor
+ 		  , itdTime
+ 		  , adminId
+ 		  , itrDate
+		FROM 
+			youngsangh
+ 	</select>
+ 	<select id="getYoungsanghById"
+ 			parameterType="String"
+ 			resultType="com.cafe24.oneteammds.vo.Youngsangh">
+		SELECT 
+ 			itrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , itName
+ 		  , itCode
+ 		  , itrValue
+ 		  , pDoctor
+ 		  , itdTime
+ 		  , adminId
+ 		  , itrDate
+		FROM 
+			youngsangh
+		where
+			patientId = #{patientId}
+ 	</select>
+ 	<insert id="getYoungsangRegist"
+ 		    parameterType="com.cafe24.oneteammds.vo.Youngsangh">
+ 	REPLACE INTO 
+ 			youngsang
+		SELECT
+			itrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , itName
+ 		  , itCode
+ 		  , itrValue
+ 		  , pDoctor
+ 		  , itdTime
+ 		  , adminId
+ 		  , itrDate
+		FROM 
+			youngsangh
+		WHERE 
+			patientId = #{patientId}
+	</insert>
+	
+	<!-- 시스템DB -->
+	<select id="getYoungsangdbList"
+			resultType="com.cafe24.oneteammds.vo.Youngsang">
+		SELECT 
+ 			itrCode
+ 		  , hospitalId
+ 		  , patientId
+ 		  , itName
+ 		  , itCode
+ 		  , itrValue
+ 		  , pDoctor
+ 		  , itdTime
+ 		  , adminId
+ 		  , itrDate
+		FROM 
+			youngsang
+	</select>
+	
+	
+	
+	
+	<select id="getYoungsangSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Youngsang">
+	  	SELECT
+			 itrCode
+			,hospitalId
+			,patientId
+			,itName
+			,itCode
+			,itrValue
+			,pDoctor
+			,itdTime
+			,adminId
+			,itrDate
+		FROM
+			 youngsang
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	
+	<delete id="delYoungsang" parameterType="String">
+		DELETE
+		FROM youngsang
+		WHERE
+		itrCode = #{itrCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+ </mapper>

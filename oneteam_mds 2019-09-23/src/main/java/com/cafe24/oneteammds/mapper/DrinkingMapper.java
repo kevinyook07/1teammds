@@ -19,9 +19,15 @@ public interface DrinkingMapper {
 	public Drinkingh getDrinkinghById(String patientId);
 	  
 	public int getDrinkingRegist(Drinking drinking);
-	  
+	 
+	public List<Drinkingh> getDrinkingSearchList (String sk, String sv);
+	
 	// 시스템DB 
 	public List<Drinking> getDrinkingdbList();
-	 
+	
+	public int delDrinking(String dcCode, String hospitalId, String patientId);
+	
+	
+	
 	
 }

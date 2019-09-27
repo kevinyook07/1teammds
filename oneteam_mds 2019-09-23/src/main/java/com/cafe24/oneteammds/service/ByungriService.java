@@ -10,31 +10,39 @@ import com.cafe24.oneteammds.mapper.ByungriMapper;
 import com.cafe24.oneteammds.vo.Byungri;
 import com.cafe24.oneteammds.vo.Byungrih;
 
-
-
-
 @Service
 @Transactional
 public class ByungriService {
 
 	@Autowired
 	private ByungriMapper byungriMapper;
-	
+
 	// 병원
-	public List<Byungrih> getByungrihList(){
+	public List<Byungrih> getByungrihList() {
 		return byungriMapper.getByungrihList();
 	}
-	
-	public Byungrih getByungrihById(String patientId) { 
-		return byungriMapper.getByungrihById(patientId); }
-	  
-	public int getByungriRegist(Byungri byungri) { 
-		return byungriMapper.getByungriRegist(byungri);
-	} 
-	
-	// 시스템 DB 
-	public List<Byungri> getByungridbList(){ 
-		return byungriMapper.getByungridbList(); 
+
+	public Byungrih getByungrihById(String patientId) {
+		return byungriMapper.getByungrihById(patientId);
 	}
-	 
+
+	public int getByungriRegist(Byungri byungri) {
+		return byungriMapper.getByungriRegist(byungri);
+	}
+
+	// 시스템 DB
+	public List<Byungri> getByungridbList() {
+		return byungriMapper.getByungridbList();
+	}
+
+	public List<Byungrih> getByungriSearchList(String sk, String sv) {
+		List<Byungrih> list = byungriMapper.getByungriSearchList(sk, sv);
+
+		return list;
+	}
+
+	public int delByungri(String ptrCode, String hospitalId, String patientId) {
+
+		return byungriMapper.delByungri(ptrCode, hospitalId, patientId);
+	}
 }

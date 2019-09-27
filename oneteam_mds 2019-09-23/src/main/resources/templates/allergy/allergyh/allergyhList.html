@@ -17,23 +17,35 @@
                 <div class="block">
                   
                   <div class="block-body">
+                  <form action="/allergyhList" method="post">
+					<select name="sk1">
+						<option value="aseCode">알러지 및 부작용 코드</option>
+						<option value="hospitalId">병원 고유번호</option>
+						<option value="patientId">환자고유번호</option>
+						<option value="asemFactor">알러지 및 부작용 요인</option>
+						<option value="asemfCode">알러지 및 부작용요인 코드</option>
+						<option value="aseName">알러지 및 부작용명</option>										
+					</select>
+					<input type="text" name="sv1">
+					<button type="submit">검색</button>
+				</form>
                     
                      <table class="table">
                       <thead>
                       	<tr>
-					        <th>알러지 및 부작용 코드</th>
-							<th>병원고유번호</th>
-							<th>환자고유번호</th>
-							<th>알러지 및 부작용 요인</th>
-							<th>알러지 및 부작용요인 코드</th>
-							<th>알러지 및 부작용명</th>
-							<th>반응</th>
-							<th>담당의</th>
-							<th>알러지 및 부작용 등록일자</th>
-							<th>등록자 고유번호</th>
-							<th>등록일자</th>
-					        <th>전송 체크</th>
-					        <th>수정</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">알러지 및 부작용 코드</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">병원고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">환자고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">알러지 및 부작용 요인</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">알러지 및 부작용요인 코드</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">알러지 및 부작용명</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">반응</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">담당의</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">알러지 및 부작용 등록일자</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록자 고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록일자</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송 체크</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">수정</th>
 				      	</tr>
                       </thead>
                       <tbody>		               							
@@ -51,7 +63,9 @@
 							<td th:text="${list.aserDate}"></td>
 							<td><input id="inlineCheckbox" type="checkbox" value="option1"></td>
 							<td>
-								<a th:href="@{/allergyRegist(patientId=${list.patientId})}">전송</a>
+								<a th:href="@{/allergyRegist(patientId=${list.patientId})}">
+									<button type="submit" class="btn btn-secondary" style="float: right;">전송</button>
+								</a>
 							</td>
 							
 						</tr>

@@ -87,4 +87,40 @@
 		FROM 
 			saengchae
 	</select>
+	
+	
+	
+	<select id="getSaengchaeSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Saengchae">
+	  	SELECT
+			 vscCode
+			,hospitalId
+			,patientId
+			,vscHeight
+			,vscWeight 
+			,bpMin
+			,bpMax
+			,bheat
+			,pDoctor
+			,vscCheck
+			,adminId
+			,vscrDate
+		FROM
+			 saengchaeh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	<delete id="delSaengchae" parameterType="String">
+		DELETE
+		FROM saengchae
+		WHERE
+		vscCode = #{vscCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
+	
  </mapper>

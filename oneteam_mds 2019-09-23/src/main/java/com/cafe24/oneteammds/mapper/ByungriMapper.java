@@ -20,8 +20,13 @@ public interface ByungriMapper {
 	  
 	public int getByungriRegist(Byungri byungri);
 	  
+	public List<Byungrih> getByungriSearchList (String sk, String sv);
 	// 시스템DB 
 	public List<Byungri> getByungridbList();
 	 
+	public int delByungri(String ptrCode, String hospitalId, String patientId);
+	
+	
+	
 	
 }

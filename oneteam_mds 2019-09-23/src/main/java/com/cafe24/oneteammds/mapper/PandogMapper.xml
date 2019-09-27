@@ -83,4 +83,41 @@
 		FROM 
 			pandog
 	</select>
+	
+	
+	
+	
+	
+	<select id="getPandogSearchList" parameterType="String" 
+			resultType="com.cafe24.oneteammds.vo.Pandog">
+	  	SELECT
+			 iidCode
+			,hospitalId
+			,patientId
+			,liContent
+			,iUrl
+			,idName
+			,pDoctor
+			,ifdTime
+			,iliDate
+			,adminId
+			,iidrDate
+		FROM
+			 pandogh
+		<if test="sv != null and sv neq ''.toString()">
+			WHERE 
+				${sk} Like CONCAT('%',#{sv},'%')		
+		</if>
+	
+	</select>
+	
+	
+	<delete id="delPandog" parameterType="String">
+		DELETE
+		FROM pandog
+		WHERE
+		iidCode = #{iidCode}
+		and hospitalId = #{hospitalId}
+		and patientId = #{patientId}
+	</delete>
  </mapper>

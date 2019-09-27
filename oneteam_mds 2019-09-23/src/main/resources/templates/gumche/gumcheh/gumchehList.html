@@ -18,23 +18,40 @@
                   
                   <div class="block-body">
                     
+                    
+                    
+                    <form action="/gumchehList" method="post">
+		<select name="sk">
+			<option value="strCode">검체검사결과 코드</option>
+			<option value="hospitalId">병원 고유번호</option>
+			<option value="patientId">환자고유번호</option>
+			<option value="stiName">검사항목명</option>
+			<option value="stiCode">검사항목코드</option>
+			<option value="stName">검사명</option>
+			<option value="strValue">검사결과값</option>			
+		</select>
+		<input type="text" name="sv">
+		<button type="submit">검색</button>
+	</form>
+	
+	
                      <table class="table">
                       <thead>
                       	<tr>
-					        <th>검체검사결과 코드</th>
-					        <th>병원 고유번호</th>
-					        <th>환자 고유번호</th>
-					        <th>검사항목명</th>
-					        <th>검사항목코드</th>
-					        <th>검사명</th>
-					        <th>검사결과값</th>
-					        <th>참고치</th>
-					        <th>담당의</th>
-					        <th>검사일시</th>
-					        <th>등록자 고유번호</th>
-					        <th>등록일자</th>					      
-					        <th>전송 체크</th>
-					        <th>수정</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">검체검사결과 코드</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">병원 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">환자 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">검사항목명</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">검사항목코드</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">검사명</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">검사결과값</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">참고치</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">담당의</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">검사일시</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록자 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록일자</th>					      
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송 체크</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">수정</th>
 				      	</tr>
                       </thead>
                       <tbody>		               							
@@ -53,7 +70,9 @@
 							<td th:text="${list.strDate}"></td>
 							<td><input id="inlineCheckbox" type="checkbox" value="option1"></td>
 							<td>
-								<a th:href="@{/gumcheRegist(patientId=${list.patientId})}">전송</a>
+								<a th:href="@{/gumcheRegist(patientId=${list.patientId})}">
+									<button type="submit" class="btn btn-secondary" style="float: right;">전송</button>
+								</a>
 							</td>
 							
 						</tr>
