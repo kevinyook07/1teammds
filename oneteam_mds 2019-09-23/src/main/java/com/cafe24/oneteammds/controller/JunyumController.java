@@ -21,25 +21,6 @@ public class JunyumController {
 	@Autowired
 	private JunyumService junyumService;
 
-	// 병원
-	@RequestMapping("/junyumhList")
-	public String getJunyumList(Model model) {
-
-		model.addAttribute("junyumhList", junyumService.getJunyumhList());
-
-		return "/junyum/junyumh/junyumhList";
-	}
-
-	@GetMapping("/junyumRegist")
-	public String getJunyumhById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("junyumh", junyumService.getJunyumhById(patientId));
-
-		return "junyum/junyumRegist/junyumRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/junyumdbList")
 	public String getJunyumRegist(Junyum junyum, Model model) {
 
@@ -57,15 +38,6 @@ public class JunyumController {
 
 		model.addAttribute("junyumdbList", list);
 		return "/junyum/junyum/junyumdbList";
-	}
-
-	@PostMapping("/junyumhList")
-	public String getJunyumList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Junyumh> list = junyumService.getJunyumSearchList(sk, sv);
-		model.addAttribute("junyumhList", list);
-
-		return "/junyum/junyumh/junyumhList";
 	}
 
 	@GetMapping("/delJunyum")

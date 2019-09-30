@@ -21,22 +21,6 @@ public class JindanController {
 	@Autowired
 	private JindanService jindanService;
 
-	// 병원
-	@RequestMapping("/jindanhList")
-	public String getJindanList(Model model) {
-
-		model.addAttribute("jindanhList", jindanService.getJindanhList());
-
-		return "/jindan/jindanh/jindanhList";
-	}
-
-	@GetMapping("/jindanRegist")
-	public String getJindanhById(@RequestParam(value = "patientId") String patientId, Model model) {
-		model.addAttribute("jindanh", jindanService.getJindanhById(patientId));
-		return "/jindan/jindanRegist/jindanRegist";
-	}
-
-	// 시스템DB
 	@PostMapping("/jindandbList")
 	public String getJindanRegist(Jindan jindan, Model model) {
 
@@ -54,15 +38,6 @@ public class JindanController {
 
 		model.addAttribute("jindandbList", list);
 		return "/jindan/jindan/jindandbList";
-	}
-
-	@PostMapping("/jindanhList")
-	public String getJindanList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Jindanh> list = jindanService.getJindanSearchList(sk, sv);
-		model.addAttribute("jindanhList", list);
-
-		return "/jindan/jindanh/jindanhList";
 	}
 
 	@GetMapping("/delJindan")

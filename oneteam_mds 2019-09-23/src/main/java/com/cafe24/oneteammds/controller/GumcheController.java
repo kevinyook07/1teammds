@@ -21,25 +21,6 @@ public class GumcheController {
 	@Autowired
 	private GumcheService gumcheService;
 
-	// 병원
-	@RequestMapping("/gumchehList")
-	public String getGumcheList(Model model) {
-
-		model.addAttribute("gumchehList", gumcheService.getGumchehList());
-
-		return "/gumche/gumcheh/gumchehList";
-	}
-
-	@GetMapping("/gumcheRegist")
-	public String getGumchehById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("gumcheh", gumcheService.getGumchehById(patientId));
-
-		return "gumche/gumcheRegist/gumcheRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/gumchedbList")
 	public String getGumcheRegist(Gumche gumche, Model model) {
 
@@ -57,16 +38,6 @@ public class GumcheController {
 
 		model.addAttribute("gumchedbList", list);
 		return "/gumche/gumche/gumchedbList";
-	}
-
-	@PostMapping("/gumchehList")
-	public String getGumcheList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Gumcheh> list = gumcheService.getGumcheSearchList(sk, sv);
-		model.addAttribute("gumchehList", list);
-
-		return "/gumche/gumcheh/gumchehList";
-
 	}
 
 	@GetMapping("/delGumche")

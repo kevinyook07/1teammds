@@ -21,6 +21,7 @@
  		  , itrDate
 		FROM 
 			youngsangh
+	   
  	</select>
  	<select id="getYoungsanghById"
  			parameterType="String"

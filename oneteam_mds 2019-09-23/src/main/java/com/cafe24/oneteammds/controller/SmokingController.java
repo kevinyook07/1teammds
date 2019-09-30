@@ -21,25 +21,6 @@ public class SmokingController {
 	@Autowired
 	private SmokingService smokingService;
 
-	// 병원
-	@RequestMapping("/smokinghList")
-	public String getSmokingList(Model model) {
-
-		model.addAttribute("smokinghList", smokingService.getSmokinghList());
-
-		return "/smoking/smokingh/smokinghList";
-	}
-
-	@GetMapping("/smokingRegist")
-	public String getSmokinghById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("smokingh", smokingService.getSmokinghById(patientId));
-
-		return "smoking/smokingRegist/smokingRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/smokingdbList")
 	public String getSmokingRegist(Smoking smoking, Model model) {
 
@@ -57,15 +38,6 @@ public class SmokingController {
 
 		model.addAttribute("smokingdbList", list);
 		return "/smoking/smoking/smokingdbList";
-	}
-
-	@PostMapping("/smokinghList")
-	public String getSmokingList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Smokingh> list = smokingService.getSmokringSearchList(sk, sv);
-		model.addAttribute("smokinghList", list);
-
-		return "/smoking/smokingh/smokinghList";
 	}
 
 	@GetMapping("/delSmoking")

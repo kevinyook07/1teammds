@@ -21,25 +21,6 @@ public class SaengchaeController {
 	@Autowired
 	private SaengchaeService saengchaeService;
 
-	// 병원
-	@RequestMapping("/saengchaehList")
-	public String getSaengchaeList(Model model) {
-
-		model.addAttribute("saengchaehList", saengchaeService.getSaengchaehList());
-
-		return "/saengchae/saengchaeh/saengchaehList";
-	}
-
-	@GetMapping("/saengchaeRegist")
-	public String getSaengchaehById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("saengchaeh", saengchaeService.getSaengchaehById(patientId));
-
-		return "saengchae/saengchaeRegist/saengchaeRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/saengchaedbList")
 	public String getSaengchaeRegist(Saengchae saengchae, Model model) {
 
@@ -57,15 +38,6 @@ public class SaengchaeController {
 
 		model.addAttribute("saengchaedbList", list);
 		return "/saengchae/saengchae/saengchaedbList";
-	}
-
-	@PostMapping("/saengchaehList")
-	public String getSaengchaeList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Saengchaeh> list = saengchaeService.getSaengchaeSearchList(sk, sv);
-		model.addAttribute("saengchaehList", list);
-
-		return "/saengchae/saengchaeh/saengchaehList";
 	}
 
 	@GetMapping("/delSaengchae")

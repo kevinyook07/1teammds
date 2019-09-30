@@ -21,25 +21,6 @@ public class YoungsangController {
 	@Autowired
 	private YoungsangService youngsangService;
 
-	// 병원
-	@RequestMapping("/youngsanghList")
-	public String getYoungsangList(Model model) {
-
-		model.addAttribute("youngsanghList", youngsangService.getYoungsanghList());
-
-		return "/youngsang/youngsangh/youngsanghList";
-	}
-
-	@GetMapping("/youngsangRegist")
-	public String getYoungsanghById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("youngsangh", youngsangService.getYoungsanghById(patientId));
-
-		return "youngsang/youngsangRegist/youngsangRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/youngsangdbList")
 	public String getYoungsangRegist(Youngsang youngsang, Model model) {
 
@@ -57,15 +38,6 @@ public class YoungsangController {
 
 		model.addAttribute("youngsangdbList", list);
 		return "/youngsang/youngsang/youngsangdbList";
-	}
-
-	@PostMapping("/youngsanghList")
-	public String getYoungsangList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Youngsangh> list = youngsangService.getYoungsangSearchList(sk, sv);
-		model.addAttribute("youngsanghList", list);
-
-		return "/youngsang/youngsangh/youngsanghList";
 	}
 
 	@GetMapping("/delYoungsang")

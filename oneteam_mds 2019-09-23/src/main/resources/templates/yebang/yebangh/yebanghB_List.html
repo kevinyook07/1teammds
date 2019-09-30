@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">예방접종내역 리스트</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+              <div class="col-lg-12">
+                <div class="block">
+                  
+                  <div class="block-body">
+                    
+                    
+                    
+                    <form action="/yebanghList" method="post">
+		<select name="sk">
+			<option value="pibCode">예방접종내역 코드</option>
+			<option value="hospitalId">병원 고유번호</option>
+			<option value="patientId">환자고유번호</option>
+			<option value="piName">예방접종명</option>
+			<option value="piCode">예방접종코드</option>
+			<option value="pivName">백신명</option>										
+		</select>
+		<input type="text" name="sv">
+		<button type="submit">검색</button>
+	</form>
+                    
+                    
+                    
+                     <table class="table">
+                      <thead>
+                      	<tr>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">예방접종내역 코드</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">병원고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">환자고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">예방접종명</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">예방접종코드</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">백신명</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">접종차수</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">담당의</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">접종일자</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록자 고유번호</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록일자</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송 체크</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">전송</th>
+				      	</tr>
+                      </thead>
+                      <tbody>		               							
+						<tr th:each="list:${yebanghList}">
+							<td th:text="${list.pibCode}"></td>
+							<td th:text="${list.hospitalId}"></td>
+							<td th:text="${list.patientId}"></td>
+							<td th:text="${list.piName}"></td>
+							<td th:text="${list.piCode}"></td>
+							<td th:text="${list.pivName}"></td>
+							<td th:text="${list.piBalance}"></td>
+							<td th:text="${list.pDoctor}"></td>
+							<td th:text="${list.piDate}"></td>
+							<td th:text="${list.adminId}"></td>
+							<td th:text="${list.pirDate}"></td>
+							<td><input id="inlineCheckbox" type="checkbox" value="option1"></td>
+							<td>
+								<a th:href="@{/yebangRegist(patientId=${list.patientId})}">
+									<button type="submit" class="btn btn-secondary" style="float: right;">전송</button>
+								</a>
+							</td>
+							
+						</tr>
+						
+                      </tbody>
+                    </table>
+                      <div class="line"></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

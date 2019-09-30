@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">약물처방내역 등록</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   <!-- Form Elements -->
+       <div class="col-lg-12">
+                <div class="block"></br>
+                  <div class="block-body">
+                    <form class="form-horizontal" action="/yakmuldbList" method="post">
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">약물처방내역 코드</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="mbCode"
+						th:value="${yakmulh.mbCode}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">병원 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="hospitalId"
+						th:value="${yakmulh.hospitalId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">환자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="patientId"
+						th:value="${yakmulh.patientId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">처방약품명</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="mmName"
+						th:value="${yakmulh.mmName}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">처방약품코드</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="mmCode"
+						th:value="${yakmulh.mmCode}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">주성분명</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="miName"
+						th:value="${yakmulh.miName}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">주성분코드 </label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="miCode"
+						th:value="${yakmulh.miCode}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">용량</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="mVolume"
+						th:value="${yakmulh.mVolume}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">복용단위</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="mdUnit"
+						th:value="${yakmulh.mdUnit}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">횟수</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="mdNumber"
+						th:value="${yakmulh.mdNumber}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">투여기간</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="mPeriod"
+						th:value="${yakmulh.mPeriod}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">용법</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="mUsage"
+						th:value="${yakmulh.mUsage}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">담당의</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="pDoctor"
+						th:value="${yakmulh.pDoctor}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">처방일시</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="mdTime"
+						th:value="${yakmulh.mdTime}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="adminId"
+						th:value="${yakmulh.adminId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록일자</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="mrDate"
+						th:value="${yakmulh.mrDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                          <button type="submit" class="btn btn-secondary" style="float: right;">등록</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

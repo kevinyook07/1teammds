@@ -21,25 +21,6 @@ public class ByungriController {
 	@Autowired
 	private ByungriService byungriService;
 
-	// 병원
-	@RequestMapping("/byungrihList")
-	public String getByungriList(Model model) {
-
-		model.addAttribute("byungrihList", byungriService.getByungrihList());
-
-		return "/byungri/byungrih/byungrihList";
-	}
-
-	@GetMapping("/byungriRegist")
-	public String getByungrihById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("byungrih", byungriService.getByungrihById(patientId));
-
-		return "byungri/byungriRegist/byungriRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/byungridbList")
 	public String getByungriRegist(Byungri byungri, Model model) {
 
@@ -58,16 +39,6 @@ public class ByungriController {
 		model.addAttribute("byungridbList", list);
 		return "/byungri/byungri/byungridbList";
 	}
-
-	@PostMapping("/byungrihList")
-	public String getByungriList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Byungrih> list = byungriService.getByungriSearchList(sk, sv);
-		model.addAttribute("byungrihList", list);
-
-		return "/byungri/byungrih/byungrihList";
-	}
-
 	@GetMapping("/delByungri")
 	public String delByungri(@RequestParam(value = "ptrCode") String ptrCode, Model model) {
 		model.addAttribute("ptrCode", ptrCode);

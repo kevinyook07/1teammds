@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">검체 검사 결과 등록</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+        
+        
+    
+       <div class="col-lg-12">
+                <div class="block"></br>
+                  <div class="block-body">
+                    <form class="form-horizontal" action="/gumchedbList" method="post">
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">검체검사결과 코드</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name=""strCode""
+						th:value="${gumcheh.strCode}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row" >
+                        <label class="col-sm-3 form-control-label">병원 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="hospitalId"
+						th:value="${gumcheh.hospitalId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">환자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="patientId"
+						th:value="${gumcheh.patientId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">검사항목명</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="stiName"
+						th:value="${gumcheh.stiName}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">검사항목코드</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="stiCode"
+						th:value="${gumcheh.stiCode}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">검사명</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="stName"
+						th:value="${gumcheh.stName}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">검사결과값 </label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="strValue"
+						th:value="${gumcheh.strValue}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">참고치</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="strrValue"
+						th:value="${gumcheh.strrValue}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">담당의</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="pDoctor"
+						th:value="${gumcheh.pDoctor}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">검사일시</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="stdTime"
+						th:value="${gumcheh.stdTime}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="adminId"
+						th:value="${gumcheh.adminId}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">등록일자</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control" name="strDate"
+						th:value="${gumcheh.strDate}" readonly="readonly">
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                          <button type="submit" class="btn btn-secondary" style="float: right;">전송</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

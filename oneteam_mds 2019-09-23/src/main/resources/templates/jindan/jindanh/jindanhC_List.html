@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+		<h2 style="text-align:center">진단내역 리스트</h2>
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+              <div class="col-lg-12">
+                <div class="block">
+                  
+                  <div class="block-body">
+                    
+                    
+                    <form action="/jindanhList" method="post">
+		<select name="sk">
+			<option value="dbCode">진단내역 코드</option>
+			<option value="hospitalId">병원 고유번호</option>
+			<option value="patientId">환자고유번호</option>
+			<option value="dName">상병명</option>
+			<option value="dCode">상병코드</option>			
+		</select>
+		<input type="text" name="sv">
+		<button type="submit">검색</button>
+	</form>
+	
+                    
+                     <table class="table">
+                      <thead>
+                        <tr>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">진단내역 코드</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">병원 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">환자 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">상병명</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">상병코드</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">진단일자</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">담당의</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록자 고유번호</th>
+					        <th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">등록일자</th>
+					    </tr>
+                      </thead>
+                      <tbody>
+		               	<tr th:each="list : ${jindanhList}">
+							<td th:text="${list.dbCode}"></td>
+							<td th:text="${list.hospitalId}"></td>
+							<td th:text="${list.patientId}"></td>
+							<td th:text="${list.dName}"></td>
+							<td th:text="${list.dCode}"></td>
+							<td th:text="${list.dDate}"></td>
+							<td th:text="${list.pDoctor}"></td>
+							<td th:text="${list.adminId}"></td>
+							<td th:text="${list.drDate}"></td>
+							<td>
+								<input id="inlineCheckbox" type="checkbox" value="option1">
+							</td>
+							<td>
+								<a th:href="@{/jindanRegist(patientId=${list.patientId})}">
+									<button type="submit" class="btn btn-secondary" style="float: right;">전송</button>
+								</a>
+							</td>							
+						</tr>
+                      </tbody>
+                    </table>
+                      <div class="line"></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <!--************메인 컨텐트 END************ -->	
+</th:block>
+</html>

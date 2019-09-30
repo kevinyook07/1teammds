@@ -21,25 +21,6 @@ public class GinuengController {
 	@Autowired
 	private GinuengService ginuengService;
 
-	// 병원
-	@RequestMapping("/ginuenghList")
-	public String getGinuengList(Model model) {
-
-		model.addAttribute("ginuenghList", ginuengService.getGinuenghList());
-
-		return "/ginueng/ginuengh/ginuenghList";
-	}
-
-	@GetMapping("/ginuengRegist")
-	public String getGinuenghById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("ginuengh", ginuengService.getGinuenghById(patientId));
-
-		return "ginueng/ginuengRegist/ginuengRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/ginuengdbList")
 	public String getGinuengRegist(Ginueng ginueng, Model model) {
 
@@ -57,15 +38,6 @@ public class GinuengController {
 
 		model.addAttribute("ginuengdbList", list);
 		return "/ginueng/ginueng/ginuengdbList";
-	}
-
-	@PostMapping("/ginuenghList")
-	public String getGinuengList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Ginuengh> list = ginuengService.getGinuengSearchList(sk, sv);
-		model.addAttribute("ginuenghList", list);
-
-		return "/ginueng/ginuengh/ginuenghList";
 	}
 
 	@GetMapping("/delGinueng")

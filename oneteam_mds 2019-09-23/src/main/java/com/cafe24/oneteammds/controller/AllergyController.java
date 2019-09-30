@@ -21,25 +21,6 @@ public class AllergyController {
 	@Autowired
 	private AllergyService allergyService;
 
-	// 병원
-	@RequestMapping("/allergyhList")
-	public String getAllergyList(Model model) {
-
-		model.addAttribute("allergyhList", allergyService.getAllergyhList());
-
-		return "/allergy/allergyh/allergyhList";
-	}
-
-	@GetMapping("/allergyRegist")
-	public String getAllergyhById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("allergyh", allergyService.getAllergyhById(patientId));
-
-		return "allergy/allergyRegist/allergyRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/allergydbList")
 	public String getAllergyRegist(Allergy allergy, Model model) {
 
@@ -58,28 +39,6 @@ public class AllergyController {
 		model.addAttribute("allergydbList", list);
 		return "/allergy/allergy/allergydbList";
 	}
-
-	@PostMapping("/allergyhList")
-	public String getAllergyhList1(@RequestParam(value = "sk1") String sk1, @RequestParam(value = "sv1") String sv1,
-			Model model) {
-		List<Allergyh> list = allergyService.getAllergySearchList1(sk1, sv1);
-		model.addAttribute("allergyhList", list);
-
-		return "/allergy/allergyh/allergyhList";
-	}
-	
-	
-	/*
-	 * @PostMapping("/allergydbList") public String
-	 * getAllergydbList2(@RequestParam(value = "sk2") String
-	 * sk2, @RequestParam(value = "sv2") String sv2, Model model) { List<Allergy>
-	 * list = allergyService.getAllergySearchList2(sk2, sv2);
-	 * model.addAttribute("allergydbList", list);
-	 * 
-	 * return "/allergy/allergy/allergydbList"; }
-	 */
-	 
-
 	@GetMapping("/delAllergy")
 	public String delAllergy(@RequestParam(value = "aseCode") String aseCode, Model model) {
 		model.addAttribute("aseCode", aseCode);

@@ -21,25 +21,6 @@ public class YakmulController {
 	@Autowired
 	private YakmulService yakmulService;
 
-	// 병원
-	@RequestMapping("/yakmulhList")
-	public String getYakmulList(Model model) {
-
-		model.addAttribute("yakmulhList", yakmulService.getYakmulhList());
-
-		return "/yakmul/yakmulh/yakmulhList";
-	}
-
-	@GetMapping("/yakmulRegist")
-	public String getYakmulhById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("yakmulh", yakmulService.getYakmulhById(patientId));
-
-		return "yakmul/yakmulRegist/yakmulRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/yakmuldbList")
 	public String getYakmulRegist(Yakmul yakmul, Model model) {
 
@@ -57,15 +38,6 @@ public class YakmulController {
 
 		model.addAttribute("yakmuldbList", list);
 		return "/yakmul/yakmul/yakmuldbList";
-	}
-
-	@PostMapping("/yakmulhList")
-	public String getYakmulList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Yakmulh> list = yakmulService.getYakmulSearchList(sk, sv);
-		model.addAttribute("yakmulhList", list);
-
-		return "/yakmul/yakmulh/yakmulhList";
 	}
 
 	@GetMapping("/delYakmul")

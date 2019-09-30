@@ -21,25 +21,6 @@ public class YebangController {
 	@Autowired
 	private YebangService yebangService;
 
-	// 병원
-	@RequestMapping("/yebanghList")
-	public String getYebangList(Model model) {
-
-		model.addAttribute("yebanghList", yebangService.getYebanghList());
-
-		return "/yebang/yebangh/yebanghList";
-	}
-
-	@GetMapping("/yebangRegist")
-	public String getYebanghById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("yebangh", yebangService.getYebanghById(patientId));
-
-		return "yebang/yebangRegist/yebangRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/yebangdbList")
 	public String getYebangRegist(Yebang yebang, Model model) {
 
@@ -58,16 +39,6 @@ public class YebangController {
 		model.addAttribute("yebangdbList", list);
 		return "/yebang/yebang/yebangdbList";
 	}
-
-	@PostMapping("/yebanghList")
-	public String getYebangList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Yebangh> list = yebangService.getYebangSearchList(sk, sv);
-		model.addAttribute("yebanghList", list);
-
-		return "/yebang/yebangh/yebanghList";
-	}
-
 	@GetMapping("/delYebang")
 	public String delYebang(@RequestParam(value = "pibCode") String pibCode, Model model) {
 		model.addAttribute("pibCode", pibCode);

@@ -21,25 +21,6 @@ public class PandogController {
 	@Autowired
 	private PandogService pandogService;
 
-	// 병원
-	@RequestMapping("/pandoghList")
-	public String getPandogList(Model model) {
-
-		model.addAttribute("pandoghList", pandogService.getPandoghList());
-
-		return "/pandog/pandogh/pandoghList";
-	}
-
-	@GetMapping("/pandogRegist")
-	public String getPandoghById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("pandogh", pandogService.getPandoghById(patientId));
-
-		return "pandog/pandogRegist/pandogRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/pandogdbList")
 	public String getPandogRegist(Pandog pandog, Model model) {
 
@@ -58,16 +39,6 @@ public class PandogController {
 		model.addAttribute("pandogdbList", list);
 		return "/pandog/pandogh/pandoghList";
 	}
-
-	@PostMapping("/pandoghList")
-	public String getPandogList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Pandogh> list = pandogService.getPandogSearchList(sk, sv);
-		model.addAttribute("pandoghList", list);
-
-		return "/pandog/pandogh/pandoghList";
-	}
-
 	@GetMapping("/delPandog")
 	public String delPandog(@RequestParam(value = "iidCode") String iidCode, Model model) {
 		model.addAttribute("iidCode", iidCode);

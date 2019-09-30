@@ -21,25 +21,6 @@ public class SusulController {
 	@Autowired
 	private SusulService susulService;
 
-	// 병원
-	@RequestMapping("/susulhList")
-	public String getSusulList(Model model) {
-
-		model.addAttribute("susulhList", susulService.getSusulhList());
-
-		return "/susul/susulh/susulhList";
-	}
-
-	@GetMapping("/susulRegist")
-	public String getSusulhById(@RequestParam(value = "patientId") String patientId, Model model) {
-
-		model.addAttribute("susulh", susulService.getSusulhById(patientId));
-
-		return "susul/susulRegist/susulRegist";
-	}
-
-	// 시스템DB
-
 	@PostMapping("/susuldbList")
 	public String getSusulRegist(Susul susul, Model model) {
 
@@ -58,16 +39,6 @@ public class SusulController {
 		model.addAttribute("susuldbList", list);
 		return "/susul/susul/susuldbList";
 	}
-
-	@PostMapping("/susulhList")
-	public String getSusulList(@RequestParam(value = "sk") String sk, @RequestParam(value = "sv") String sv,
-			Model model) {
-		List<Susulh> list = susulService.getSusulSearchList(sk, sv);
-		model.addAttribute("susulhList", list);
-
-		return "/susul/susulh/susulhList";
-	}
-
 	@GetMapping("/delSusul")
 	public String delSusul(@RequestParam(value = "sbCode") String sbCode, Model model) {
 		model.addAttribute("sbCode", sbCode);
