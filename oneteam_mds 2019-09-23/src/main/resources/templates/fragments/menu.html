@@ -8,9 +8,9 @@
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
           <th:block  th:unless="${session.SID eq null}">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="img/user.png" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
-            <h1 class="h5">[[${session.SID}]] <br>[[${session.SNAME}]]님 [[${session.SLEVEL}]]</h1>
+            <h1 class="h5">반갑습니다. [[${session.SID}]]<br/> [[${session.SLEVEL}]] <br/>[[${session.SNAME}]] 님  <br/></h1>
           </div>
           </th:block>
         </div>
@@ -21,7 +21,7 @@
                 	<a th:href="addAdminMain"> <i class="icon-user">
                 	</i>회원등록</a>
                 </li>
-                <li th:if="${session.SID ne 'patientId01'and session.SID ne 'patientId02'and session.SID ne 'patientId03'}">
+                <li th:if="${session.SID ne 'patientId01'and session.SID ne 'patientId02'and session.SID ne 'patientId03'}" th:unless="${session.SID eq null}">
                 	<a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-padnote">
                 </i>회원 리스트</a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled">
