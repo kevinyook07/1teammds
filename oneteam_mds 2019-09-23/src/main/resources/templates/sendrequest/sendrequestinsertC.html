@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
+
+
+
+<th:block layout:fragment="customContents">
+	<div class="page-content">
+	 <!-- **************윗상단 메인 메뉴 ************** -->
+		<div class="page-header">
+			<div class="container-fluid"></div>
+	<!-- **************윗상단 메인 메뉴END ************** -->
+	<!--************메인 컨텐트 ************ -->		
+	   	</div>
+	   	  <!-- Form Elements -->
+       <div class="col-lg-12">
+                <div class="block">
+                  <h2 style="text-align:center"><br>C병원 진료 정보 발신</h2><br><br>
+                  <div class="block-body">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">정보 보낼 병원 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" value="hospitalIdc" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">정보 받는 병원 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">환자 고유번호</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">진단 코드</label>
+                        <div class="col-sm-9">
+                          <input type="text"  class="form-control">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">발송 일자</label>
+                        <div class="col-sm-9">
+                          <input type="date" class="form-control">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">사유</label>
+                        <div class="col-sm-9">
+                          <textarea class="form-control" rows="10"></textarea>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                          <br/><a href="sendrequestlistC" class="btn btn-secondary" style="float: right;">발송</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+ </div>
+	<!--************메인 컨텐트 END************ -->	
+</th:block>
+
+</html>

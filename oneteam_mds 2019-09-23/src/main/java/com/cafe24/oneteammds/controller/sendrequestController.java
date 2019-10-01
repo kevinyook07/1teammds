@@ -6,24 +6,69 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class sendrequestController {
 
-	@GetMapping("sendrequestinsert")
-	public String sendrequestinsert() {
+	@GetMapping("sendrequestinsertA")
+	public String sendrequestinsertA() {
 		
-		return "/sendrequest/sendrequestinsert";
+		return "/sendrequest/sendrequestinsertA";
 	}
-	@GetMapping("sendrequestlist")
-	public String sendrequestlist() {
+	@GetMapping("sendrequestlistA")
+	public String sendrequestlistA() {
 		
-		return "/sendrequest/sendrequestlist";
+		return "/sendrequest/sendrequestlistA";
 	}
-	@GetMapping("epatientsinsert")
-	public String epatientsinsert() {
+	
+	@GetMapping("sendrequestinsertB")
+	public String sendrequestinsertB() {
 		
-		return "/sendrequest/epatientsinsert";
+		return "/sendrequest/sendrequestinsertB";
 	}
-	@GetMapping("epatientslist")
-	public String epatientslist() {
+	@GetMapping("sendrequestlistB")
+	public String sendrequestlistB() {
 		
-		return "/sendrequest/epatientslist";
+		return "/sendrequest/sendrequestlistB";
+	}
+	
+	@GetMapping("sendrequestinsertC")
+	public String sendrequestinsertC() {
+		
+		return "/sendrequest/sendrequestinsertC";
+	}
+	@GetMapping("sendrequestlistC")
+	public String sendrequestlistC() {
+		
+		return "/sendrequest/sendrequestlistC";
+	}
+	
+	@GetMapping("epatientsinsertA")
+	public String epatientsinsertA() {
+		
+		return "/sendrequest/epatientsinsertA";
+	}
+	@GetMapping("epatientslistA")
+	public String epatientslistA() {
+		
+		return "/sendrequest/epatientslistA";
+	}
+	
+	@GetMapping("epatientsinsertB")
+	public String epatientsinsertB() {
+		
+		return "/sendrequest/epatientsinsertB";
+	}
+	@GetMapping("epatientslistB")
+	public String epatientslistB() {
+		
+		return "/sendrequest/epatientslistB";
+	}
+	
+	@GetMapping("epatientsinsertC")
+	public String epatientsinsertC() {
+		
+		return "/sendrequest/epatientsinsertC";
+	}
+	@GetMapping("epatientslistC")
+	public String epatientslistC() {
+		
+		return "/sendrequest/epatientslistC";
 	}
 }

@@ -102,16 +102,32 @@
                     <li><a href="pandogdbList">영상판독정보</a></li>
                   </ul>
                 </li>
-                 <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse" th:if="${session.SLEVEL eq '관리자'}"> <i class="icon-padnote"></i>!)진료 정보 발신 리스트</a>
+                 <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse" th:if="${session.SLEVEL eq '관리자'}"> <i class="icon-padnote"></i>!)A병원 진료 정보 발신 리스트</a>
                   <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
-                    <li><a href="sendrequestinsert">!)진료 정보 발신</a></li>
-                    <li><a href="sendrequestlist">!)진료 정보 발신 내역</a></li>
-                    <li><a href="epatientsinsert">!)환자 전원 거부 발신</a></li> 
-                    <li><a href="epatientslist">!)환자 전원 거부 발신 내역</a></li> 
+                    <li><a href="sendrequestinsertA">!)진료 정보 발신</a></li>
+                    <li><a href="sendrequestlistA">!)진료 정보 발신 내역</a></li>
+                    <li><a href="epatientsinsertA">!)환자 전원 거부 발신</a></li> 
+                    <li><a href="epatientslistA">!)환자 전원 거부 발신 내역</a></li> 
                   </ul>
                  </li>
-                 <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse" th:if="${session.SLEVEL eq '관리자'}"> <i class="icon-padnote"></i>!)진료 정보 수신 리스트</a>
+                 <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse" th:if="${session.SLEVEL eq '관리자'}"> <i class="icon-padnote"></i>!)B병원 진료 정보 발신 리스트</a>
                   <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
+                    <li><a href="sendrequestinsertB">!)진료 정보 발신</a></li>
+                    <li><a href="sendrequestlistB">!)진료 정보 발신 내역</a></li>
+                    <li><a href="epatientsinsertB">!)환자 전원 거부 발신</a></li> 
+                    <li><a href="epatientslistB">!)환자 전원 거부 발신 내역</a></li> 
+                  </ul>
+                 </li>
+                 <li><a href="#exampledropdownDropdown6" aria-expanded="false" data-toggle="collapse" th:if="${session.SLEVEL eq '관리자'}"> <i class="icon-padnote"></i>!)C병원 진료 정보 발신 리스트</a>
+                  <ul id="exampledropdownDropdown6" class="collapse list-unstyled ">
+                    <li><a href="sendrequestinsertC">!)진료 정보 발신</a></li>
+                    <li><a href="sendrequestlistC">!)진료 정보 발신 내역</a></li>
+                    <li><a href="epatientsinsertC">!)환자 전원 거부 발신</a></li> 
+                    <li><a href="epatientslistC">!)환자 전원 거부 발신 내역</a></li> 
+                  </ul>
+                 </li>
+                 <li><a href="#exampledropdownDropdown7" aria-expanded="false" data-toggle="collapse" th:if="${session.SLEVEL eq '관리자'}"> <i class="icon-padnote"></i>!)진료 정보 수신 리스트</a>
+                  <ul id="exampledropdownDropdown7" class="collapse list-unstyled ">
                     <li><a href="receiverequestlist">!)진료 정보 수신 요청 내역 </a></li>
                     <li><a href="epatientrlist">!)환자 전원 조치 수신 내역</a></li> 
                   </ul>
