@@ -8,9 +8,9 @@
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
           <th:block  th:unless="${session.SID eq null}">
-          <div class="avatar"><img src="img/user.png" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><a th:href="@{/modifyAdmin(adminId=${session.SID})}"><img src="img/user.png" alt="..." class="img-fluid rounded-circle"></a></div>
           <div class="title">
-            <h1 class="h5">반갑습니다. [[${session.SID}]]<br/> [[${session.SLEVEL}]] <br/>[[${session.SNAME}]] 님  <br/></h1>
+            반갑습니다. <h1 class="h5"><a th:href="@{/modifyAdmin(adminId=${session.SID})}">[[${session.SID}]]</a></h1> [[${session.SLEVEL}]] <br/>[[${session.SNAME}]] 님  <br/>
           </div>
           </th:block>
         </div>

@@ -17,11 +17,10 @@
           </div>
             <!-- Log out               -->
      <div>
-     
-            <a class="nav-link navbar-brand btn btn-light" th:href="@{/mainLogin}" th:if="${session.SID eq null}">로그인</a>
-         	<a class="nav-link navbar-brand btn btn-light" th:href="@{/addMain}" th:if="${session.SID eq null}">회원등록</a>
+     		<a id="login" th:href="@{/mainLogin}" class="nav-link" th:if="${session.SID eq null}"> <span class="d-none d-sm-inline">Login</span> <i class="icon-logout"></i></a>
+			<a id="signUp"th:href="@{/addMain}" class="nav-link" th:if="${session.SID eq null}"> <span class="d-none d-sm-inline">Sign Up</span> <i class="icon-new-file"></i></a>
             <th:block  th:unless="${session.SID eq null}">
-				<a class="navbar-brand btn btn-light" th:href="@{/logout}">로그아웃</a>
+            	<a id="logout" th:href="@{/logout}" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a>
 			</th:block>
             </div>
             
